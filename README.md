@@ -21,9 +21,9 @@ prepare
 
 2. 调整 project setting ::
 
-    django-admin startproject www
-    cd www
-    vim www/settings.py
+    [root@tvm001 ~]# django-admin startproject www
+    [root@tvm001 ~]# cd www
+    [root@tvm001 ~]# vim www/settings.py
     增加app，调整语言和时区，配置文件最后增加static目录的路径 
         INSTALLED_APPS = [
             (omitted)
@@ -39,7 +39,7 @@ prepare
 
 4. 调整 project urls ::
 
-    vim www/urls.py
+    [root@tvm001 ~]# vim www/urls.py
         from django.conf.urls import url, include
         from django.contrib import admin
         from charade import views
@@ -52,16 +52,16 @@ prepare
 
 5. 生成数据库 ::
 
-    python manage.py migrate
-    python manage.py makemigrations charade
-    python manage.py sqlmigrate charade 0001
-    python manage.py makemigrations polls
-    python manage.py sqlmigrate polls 0001
-    python manage.py migrate
+    [root@tvm001 ~]# python manage.py migrate
+    [root@tvm001 ~]# python manage.py makemigrations charade
+    [root@tvm001 ~]# python manage.py sqlmigrate charade 0001
+    [root@tvm001 ~]# python manage.py makemigrations polls
+    [root@tvm001 ~]# python manage.py sqlmigrate polls 0001
+    [root@tvm001 ~]# python manage.py migrate
 
 6. 试着运行一下 ::
 
-    python manage.py runserver 0.0.0.0:80
+    [root@tvm001 ~]# python manage.py runserver 0.0.0.0:80
     测试基本功能，
     例如，我们用到了：pytz，需要安装，否则会报错：
     Exception Type:	ImproperlyConfigured
@@ -74,7 +74,7 @@ prepare
 
 7. admin后台 ::
 
-    python manage.py createsuperuser
+    [root@tvm001 ~]# python manage.py createsuperuser
     http://0.0.0.0/admin/
 
 
@@ -87,7 +87,6 @@ uwsgi+supervisord+nginx
 ----------------------
 1. 安装 ::
 
-    (centos7)
     [root@tvm001 ~]# yum install nginx python-devel
     [root@tvm001 ~]# yum groupinstall "development tools"
     [root@tvm001 ~]# pip install supervisor
@@ -176,8 +175,10 @@ uwsgi+supervisord+nginx
             proxy_pass http://backend;
         }
     }
+    
+    (centos7)
     [root@tvm001 ~]# systemctl start nginx.service
     [root@tvm001 ~]# systemctl enable nginx.service
-    [root@tvm001 ~]# systemctl is-enabled nginx.service
-    enabled
-    [root@tvm001 ~]# systemctl status nginx.service  
+    (centos6)
+    [root@tvm001 ~]# service nginx start
+    [root@tvm001 ~]# chkconfig nginx on
