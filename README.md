@@ -1,9 +1,9 @@
 
-初探django-charade在centos7下部署并演示使用virtualenv（可选）
+初探django-charade在centos7下部署
 ====================
 2016/1/15
 
-#一、演示如何使用virtualenv（如果不需要，请跳到第二节）
+##一、演示如何使用virtualenv（若不需要，请直接看下一节）
 
 prepare
 -------
@@ -190,7 +190,9 @@ uwsgi+supervisord+nginx
         [root@tvm001 ~]# systemctl enable nginx.service
 
         
-#二、演示直接部署
+
+
+##二、演示直接部署
 ------------------------------------------------------------------------------
 
 prepare
