@@ -63,10 +63,10 @@ prepare
 
         [root@tvm001 ~]# python manage.py runserver 0.0.0.0:80
     测试基本功能，例如，我们用到了：pytz，需要安装，否则会报错：
-        Exception Type:	ImproperlyConfigured
-        Exception Value:	
-        This query requires pytz, but it isn't installed.
-        (django_web)[root@tvm001 www]# pip install pytz     
+                Exception Type:	ImproperlyConfigured
+                Exception Value:	
+                This query requires pytz, but it isn't installed.
+                (django_web)[root@tvm001 www]# pip install pytz     
     
     确认后台的数据读写无异常后，停止运行，后续将使用uwsgi来管理。
 
@@ -79,7 +79,7 @@ prepare
 
 8. debug ::
 
-    DEBUG=False，则django不处理静态文件，此时应该配置nginx或apache来处理静态文件。
+        DEBUG=False，则django不处理静态文件，此时应该配置nginx或apache来处理静态文件。
 
 
 uwsgi+supervisord+nginx
@@ -99,6 +99,7 @@ uwsgi+supervisord+nginx
 2. 配置 ::
 
     1) 关闭django项目的 DEBUG 选项，并设置 ALLOWED_HOSTS 和 STATIC_ROOT ：
+    
         (django_web)[root@tvm001 www]# vim www/settings.py
         DEBUG = False
         
@@ -107,9 +108,11 @@ uwsgi+supervisord+nginx
         STATIC_ROOT = os.path.join(BASE_DIR,'static')
     
     2) 收集django项目的static文件：
+    
         (django_web)[root@tvm001 www]# python manage.py collectstatic
     
     3) 使用supervisor来管理uwsgi服务，用uwsgi来运行django：
+    
         [root@tvm001 ~]# # echo_supervisord_conf > /etc/supervisord.conf \
         && mkdir /etc/supervisor.d \
         && echo -e '[include]\nfiles=/etc/supervisor.d/*.ini' >>/etc/supervisord.conf \
@@ -117,27 +120,31 @@ uwsgi+supervisord+nginx
         
         [root@tvm001 ~]# whereis supervisord
     
-    启动 supervisord 服务：
+    4) 启动 supervisord 服务：
+    
         [root@tvm001 ~]# /usr/bin/supervisord -c /etc/supervisord.conf
         [root@tvm001 ~]# echo '/usr/bin/supervisord -c /etc/supervisord.conf' >>/etc/rc.local
     
-    4) 配置uwsgi服务
+    5) 配置uwsgi服务：
+    
         [root@tvm001 ~]# cat /etc/supervisor.d/uwsgi.ini 
         [program:uwsgi]
         command=/opt/.virtualenvs/django_web/bin/uwsgi --socket 127.0.0.1:8090 --chdir /opt/.pyprojects/django_web/www --module www.wsgi
         
-    启动 uwsgi 服务：
+    6）启动 uwsgi 服务：
+    
         [root@tvm001 ~]# supervisorctl reload
         Restarted supervisord
         [root@tvm001 ~]# supervisorctl status
         uwsgi                            RUNNING   pid 22023, uptime 0:00:05
     
-    说明：
+        说明：
         uwsgi 使用 --socket 方式，表示：通过socket来访问，因此后续可以用 nginx uwsgi 模块来访问。
         uwsgi 使用 --http 方式，表示：可以直接通过 http访问，因此后续可以用 nginx proxy 来访问。
     
     
-    5) 使用nginx来处理静态文件和转发请求到后端的uwsgi服务
+    7) 使用nginx来处理静态文件和转发请求到后端的uwsgi服务
+    
         a）nginx uwsgi
         [root@tvm001 ~]# cat /etc/nginx/conf.d/www.conf 
         server {
