@@ -63,10 +63,11 @@ prepare
 
         [root@tvm001 ~]# python manage.py runserver 0.0.0.0:80
     测试基本功能，例如，我们用到了：pytz，需要安装，否则会报错：
-                Exception Type:	ImproperlyConfigured
-                Exception Value:	
-                This query requires pytz, but it isn't installed.
-                (django_web)[root@tvm001 www]# pip install pytz     
+    
+        Exception Type:	ImproperlyConfigured
+        Exception Value:	
+        This query requires pytz, but it isn't installed.
+        (django_web)[root@tvm001 www]# pip install pytz     
     
     确认后台的数据读写无异常后，停止运行，后续将使用uwsgi来管理。
 
