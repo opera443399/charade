@@ -10,7 +10,7 @@
     <form class="form-inline" role="form" id="setting" action="{% url 'charade:game_ready' %}" method="post">
         <div class="form-group">
             Jump to: <a href="{% url 'polls:index' %}">Polls</a>
-            View: <a href="{% url 'charade:game_board' %}">Scores Board</a>
+            View: <a href="{% url 'charade:game_board' %}">Score-Board</a>
             {% csrf_token %}
             <input class="form-control" type="text" id="amount" name="amount" placeholder="number of words" maxlength="3">
             <button type="button" class="btn btn-primary" id="ready2go">Go</button>
