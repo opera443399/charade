@@ -46,5 +46,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# files for .pyc
-.pyc
+# Temporary
+*.pyc
+
+# dirs 
+/www/charade/migrations
+/www/polls/migrations
+
+# data
+db.sqlite3
+
