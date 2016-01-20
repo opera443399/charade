@@ -1,3 +1,8 @@
+# coding: utf-8
+################################### 
+# 2016/1/20
+# pc
+###################################
 from django.conf.urls import url
 from . import views
 
