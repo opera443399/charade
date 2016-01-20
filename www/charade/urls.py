@@ -7,16 +7,16 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # ex: /charade/
+    # ex: /
     url(r'^$', views.game_ready, name='game_ready'),
-    # ex: /charade/set
+    # ex: /set/
     url(r'^set/$', views.game_set, name='game_set'),
-    # ex: /charade/set/10/play
+    # ex: /set/12/play/
     url(r'^set/(?P<board_id>[0-9]+)/play/$', views.game_play, name='game_play'),
-    # ex: /charade/set/10/score
+    # ex: /score/41/
     url(r'^score/(?P<wid>[0-9]+)/$', views.game_score, name='game_score'),
-    # ex: /charade/board
+    # ex: /board/
     url(r'^board/$', views.game_board, name='game_board'),
-    # ex: /charade/explanation/11
+    # ex: /explanation/41/
     url(r'^explanation/(?P<pk>[0-9]+)/$', views.Explanation.as_view(), name='explanation'),
 ]
