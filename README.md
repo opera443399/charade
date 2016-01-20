@@ -3,6 +3,7 @@
 2016/1/20
 
 ####charade 是一个猜单词的小游戏。
+https://github.com/opera443399/charade
 
 prepare
 -------
