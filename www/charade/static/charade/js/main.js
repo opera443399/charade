@@ -14,19 +14,21 @@ $(document).ready(function(){
         var r = /^[0-9]*$/;
         if(!n){
             event.preventDefault();
-            $("#warning").text("[Error] Set the number of the words before you play.");
+            $("#warning").hide();
+            $("#warning").text("Set the number before you can play.").slideDown('slow');
             $("#amount").focus();
         }
         else if (!r.test(n)){
             event.preventDefault();
-            $("#warning").text("[Error] Digit only. The value you set '" + n + "' is not valid.");
+            $("#warning").hide();
+            $("#warning").text("Digit only. The value you set '" + n + "' is not valid.").slideDown('slow');
             $("#amount").focus();
         }
         else {
-            $("#warning").text("");
-            $("#warning").text("Ready!").fadeIn(1000).fadeOut(2000,function(){
-                $("#warning").text("Set!").fadeIn(1000).fadeOut(2000,function(){
-                    $("#warning").text("Go!").fadeIn(1000).fadeOut(2000,function(){
+            $("#warning").hide();
+            $("#warning").text("Ready!").fadeIn(2000).fadeOut(1000,function(){
+                $("#warning").text("Set!").fadeIn(2000).fadeOut(1000,function(){
+                    $("#warning").text("Go!").fadeIn(2000).fadeOut(1000,function(){
                         $("#setting").submit();
                     });
                 });

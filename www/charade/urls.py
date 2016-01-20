@@ -9,8 +9,8 @@ from . import views
 urlpatterns = [
     # ex: /charade/
     url(r'^$', views.game_ready, name='game_ready'),
-    # ex: /charade/set/10
-    url(r'^set/(?P<amount>[0-9]+)/$', views.game_set, name='game_set'),
+    # ex: /charade/set
+    url(r'^set/$', views.game_set, name='game_set'),
     # ex: /charade/set/10/play
     url(r'^set/(?P<board_id>[0-9]+)/play/$', views.game_play, name='game_play'),
     # ex: /charade/set/10/score

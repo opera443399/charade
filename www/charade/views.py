@@ -17,26 +17,26 @@ def index(request):
     return HttpResponseRedirect(reverse('charade:game_ready'))
 
 def game_ready(request):
+    """"ready to go"""
+    return render(request, 'charade/ready.html')
+
+def game_set(request):
+    """fetch some words into temporary table"""
     try:
         amount = int(request.POST['amount'])
-    except (KeyError):
-        msgs = 'How many words you want to charade?'
-        context = {'msgs': msgs}
+    except (KeyError, ValueError):
+        msgs = '[ERROR] Set the number before you can play.'
+        print msgs
         return render(request, 'charade/ready.html')
     else:
-        return HttpResponseRedirect(reverse('charade:game_set', args=(amount,)))
+        GameTemporaryTable.objects.all().delete()
+        tmp_word_list = Vocabulary.objects.order_by('?')[:amount]
+        tmp_board = GameScoreBoard.objects.create(amount=amount)
+        tmp_table = GameScoreBoard.objects.get(pk=tmp_board.id)
+        for w in tmp_word_list:
+            tmp_table.gametemporarytable_set.create(en=w.en, zh=w.zh, exp=w.exp)
 
-
-def game_set(request, amount=20):
-    """fetch some words into temporary table"""
-    GameTemporaryTable.objects.all().delete()
-    tmp_word_list = Vocabulary.objects.order_by('?')[:amount]
-    tmp_board = GameScoreBoard.objects.create(amount=amount)
-    tmp_table = GameScoreBoard.objects.get(pk=tmp_board.id)
-    for w in tmp_word_list:
-        tmp_table.gametemporarytable_set.create(en=w.en, zh=w.zh, exp=w.exp)
-
-    return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_board.id,)))
+        return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_board.id,)))
 
 
 def game_play(request, board_id):
