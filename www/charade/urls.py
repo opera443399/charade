@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/20
+# 2016/1/21
 # pc
 ###################################
 from django.conf.urls import url
@@ -19,4 +19,8 @@ urlpatterns = [
     url(r'^board/$', views.game_board, name='game_board'),
     # ex: /explanation/41/
     url(r'^explanation/(?P<pk>[0-9]+)/$', views.Explanation.as_view(), name='explanation'),
+
+    ### test use only
+    # ex: /show/meta/
+    #url(r'^show/meta/$',views.show_meta, name='show_meta')
 ]

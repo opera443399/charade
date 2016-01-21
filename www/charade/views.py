@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/20
+# 2016/1/21
 # pc
 ###################################
 from django.shortcuts import get_object_or_404, render
@@ -40,8 +40,8 @@ def game_set(request):
 
 
 def game_play(request, board_id):
-    """fetch one row """
-    tmp_table = GameScoreBoard.objects.get(pk=board_id)
+    """show the word by random """
+    tmp_table = get_object_or_404(GameScoreBoard, pk=board_id)
     tmp_word_list = tmp_table.gametemporarytable_set.exclude(used=1).order_by('?')[:1]
     if tmp_word_list:
         context = {'word_list': tmp_word_list}
@@ -59,7 +59,8 @@ def game_play(request, board_id):
 
 
 def game_score(request, wid):
-    tmp_table = GameTemporaryTable.objects.get(id=wid)
+    """score the word."""
+    tmp_table = get_object_or_404(GameTemporaryTable, pk=wid)
     try:
         s = int(request.POST['scores'])
     except (KeyError):
@@ -76,7 +77,7 @@ def game_score(request, wid):
         return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_table.board_id,)))
     
 def game_board(request):
-    """Return some words"""
+    """show the scores board of this game."""
     game_score_board = GameScoreBoard.objects.order_by('-dt_start')
     paginator = Paginator(game_score_board, 5) # show 5 rows per page
     page = request.GET.get('page')
@@ -91,7 +92,17 @@ def game_board(request):
     return render(request, 'charade/board.html', context)
 
 class Explanation(generic.DetailView):
+    """Word Explanation"""
     model = GameTemporaryTable
     template_name = 'charade/explanation.html'
     
-
+def show_meta(request):
+    """test use only"""
+    metas = request.META.items()
+    metas.sort()
+    print 'test meta: {0}'.format(metas)
+    html = []
+    for k,v in metas:
+        html.append('<tr><td>{0}</td><td>{1}</td></tr>'.format(k,v))
+    content = '<table>{0}</table>'.format('\n'.join(html))
+    return HttpResponse(content)
