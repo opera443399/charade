@@ -21,7 +21,8 @@
 <body>
 <!-- Container Start -->
 <div class="container">
-    <!-- Header Start -->
+
+    <!-- Nav Start -->
     <div class="row">
         <div class="col-md-4">
             <p></p>
@@ -36,20 +37,25 @@
         <div class="col-md-4">
         {% if user.is_authenticated %}
             <p></p>
-            <strong>
-                Welcome, {{ user.username }}
-                <a href="{% url 'django.contrib.auth.views.logout' %}" title="logout">Logout</a>
+            <a href="{% url 'django.contrib.auth.views.logout' %}" title="logout">Logout</a>
+            |<strong>
+            Welcome, {{ user.username }}
             </strong>
         {% endif %}
         </div>
     </div>
+    <!-- End of Nav -->
+
+    <!-- Header Start -->
     <div class="row">
         <div class="col-md-2">
         </div>
         <div class="col-md-8">
-            <h1 id="tips" class="text-center">
-                <small id="tips1">[English Corner]:</small><strong id="tips2">Let's charade</strong>
-            </h1>
+            <h3 id="tips" class="text-center">
+                <small id="tips1">English Corner</small>
+                <a href="{% url 'charade:show_about' %}" title="About">'.'</a>
+                <strong id="tips2">Let's charade</strong>
+            </h3>
         </div>
         <div class="col-md-2">
         </div>
@@ -85,6 +91,7 @@
     <!-- Content Start -->
     {% block content %}{% endblock %}
     <!-- End of Content -->
+
 </div>
 <!-- End of Container -->
 </body>

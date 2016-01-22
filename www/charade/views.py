@@ -10,6 +10,7 @@ from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required 
+from django.views.decorators.cache import cache_page
 
 from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
 
@@ -97,15 +98,19 @@ def game_board(request):
 
     return render(request, 'charade/board.html', context)
 
-
 class Explanation(generic.DetailView):
     """Word Explanation"""
     model = GameTemporaryTable
     template_name = 'charade/explanation.html'
 
 
-###################################################
+################################################### test use only.
 
+
+@cache_page(60 * 15)
+def show_about(request):
+    """test cache"""
+    return render(request, 'charade/about.html')
     
 def show_meta(request):
     """test use only"""

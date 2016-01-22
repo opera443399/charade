@@ -22,5 +22,7 @@ urlpatterns = [
 
     ###### test use only
     # ex: /show/meta/
+    url(r'^show/about/$', views.show_about, name='show_about'),
+    # ex: /show/meta/
     #url(r'^show/meta/$', views.show_meta, name='show_meta'),
 ]
