@@ -34,7 +34,13 @@
         <div class="col-md-4">
         </div>
         <div class="col-md-4">
-            {% block auth %}{% endblock %}
+        {% if user.is_authenticated %}
+            <p></p>
+            <strong>
+                Welcome, {{ user.username }}
+                <a href="{% url 'django.contrib.auth.views.logout' %}" title="logout">Logout</a>
+            </strong>
+        {% endif %}
         </div>
     </div>
     <div class="row">

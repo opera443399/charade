@@ -20,7 +20,7 @@ urlpatterns = [
     # ex: /explanation/41/
     url(r'^explanation/(?P<pk>[0-9]+)/$', views.Explanation.as_view(), name='explanation'),
 
-    ### test use only
+    ###### test use only
     # ex: /show/meta/
     #url(r'^show/meta/$', views.show_meta, name='show_meta'),
 ]

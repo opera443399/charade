@@ -20,13 +20,22 @@ from django.contrib.auth import views as auth_views
 from charade import views as charade_views
 
 urlpatterns = [
+    # ex: /
     url(r'^$', charade_views.index, name='index'),
-    # apps
+
+    ###### apps
+    # ex: /charade/
     url(r'^charade/', include('charade.urls', namespace='charade')),
+    # ex: /polls/
     url(r'^polls/', include('polls.urls', namespace='polls')),
-    # admin
+
+    ###### admin
+    # ex: /admin/
     url(r'^admin/', include(admin.site.urls)),
-    # auth
+
+    ###### auth
+    # ex: /accounts/login/
     url(r'^accounts/login/$', auth_views.login),
+    # ex: /accounts/logout/
     url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}),
 ]

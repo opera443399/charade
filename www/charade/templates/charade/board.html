@@ -1,14 +1,5 @@
 {% extends 'charade/base.html' %}
 {% block title %}Scores Board{% endblock %}
-{% block auth %}
-{% if user.is_authenticated %}
-    <p></p>
-    <strong>
-        Welcome, {{ user.username }}
-        <a href="{% url 'django.contrib.auth.views.logout' %}" title="logout">Logout</a>
-    </strong>
-{% endif %}
-{% endblock %}
 {% block content %}
 {% if board %}
 <div class="row text-center">
