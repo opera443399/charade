@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/21
+# 2016/1/22
 # pc
 ###################################
 from django.conf.urls import url
@@ -22,5 +22,5 @@ urlpatterns = [
 
     ### test use only
     # ex: /show/meta/
-    #url(r'^show/meta/$',views.show_meta, name='show_meta')
+    #url(r'^show/meta/$', views.show_meta, name='show_meta'),
 ]

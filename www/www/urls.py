@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
-from charade import views
+from charade import views as charade_views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', charade_views.index, name='index'),
+    # apps
     url(r'^charade/', include('charade.urls', namespace='charade')),
     url(r'^polls/', include('polls.urls', namespace='polls')),
+    # admin
     url(r'^admin/', include(admin.site.urls)),
+    # auth
+    url(r'^accounts/login/$', auth_views.login),
+    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}),
 ]

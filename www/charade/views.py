@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/21
+# 2016/1/22
 # pc
 ###################################
 from django.shortcuts import get_object_or_404, render
@@ -9,16 +9,21 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
+
 
 # Create your views here.
 def index(request):
     return HttpResponseRedirect(reverse('charade:game_ready'))
 
+
 def game_ready(request):
     """"ready to go"""
     return render(request, 'charade/ready.html')
+
 
 def game_set(request):
     """fetch some words into temporary table"""
@@ -76,6 +81,8 @@ def game_score(request, wid):
         tmp_table.save()
         return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_table.board_id,)))
     
+
+@login_required
 def game_board(request):
     """show the scores board of this game."""
     game_score_board = GameScoreBoard.objects.order_by('-dt_start')
@@ -91,10 +98,15 @@ def game_board(request):
 
     return render(request, 'charade/board.html', context)
 
+
 class Explanation(generic.DetailView):
     """Word Explanation"""
     model = GameTemporaryTable
     template_name = 'charade/explanation.html'
+
+
+###################################################
+
     
 def show_meta(request):
     """test use only"""
