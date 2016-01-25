@@ -1,13 +1,8 @@
 #!/bin/bash
 # 
-# 2016/1/21
+# 2016/1/25
 
 source_path='/opt/charade'
-
-function do_gp(){
-    cd ${source_path}
-    git pull
-}
 
 function do_online(){
     # find /opt/charade/www/ ! -user nobody -print
@@ -39,7 +34,6 @@ function usage(){
 
 USAGE: $0 [gp|co|online|reload] 
 
-    gp      :     git pull
     co      :     collectstatic
     online  :     chown to nobody and reload
     reload  :     reload supervisor
@@ -48,7 +42,7 @@ _EOF
 }
 
 case $1 in
-    gp|co|online|reload)
+    co|online|reload)
         do_$1
         ;;
     *)
