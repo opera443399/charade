@@ -122,8 +122,8 @@ class VocabularyViewTests(TestCase):
         """
         game_board --01
         """    
-        response = self.client.get(reverse('charade:game_board'))
-        self.assertEqual(response.status_code, 302)
+        response = self.client.get(reverse('charade:game_board'), follow=True)
+        self.assertContains(response, "Please login to see this page.", status_code=200)
 
     def test_explanation_view_word_id_not_exist(self):
         """
