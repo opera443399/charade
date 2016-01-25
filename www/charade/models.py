@@ -1,6 +1,6 @@
 # coding: utf-8
 ###################################
-# 2016/1/20
+# 2016/1/25
 # pc
 ###################################
 from __future__ import unicode_literals
@@ -27,6 +27,10 @@ class Vocabulary(models.Model):
     def was_added_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.dt <= now
+
+    was_added_recently.admin_order_field = 'dt'
+    was_added_recently.boolean = True
+    was_added_recently.short_description = '最近添加？'
         
 
 @python_2_unicode_compatible

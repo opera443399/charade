@@ -1,6 +1,6 @@
 # coding: utf-8
 ###################################
-# 2016/1/20
+# 2016/1/25
 # pc
 ###################################
 from django.contrib import admin
@@ -11,7 +11,7 @@ from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
 
 class VocabularyAdmin(admin.ModelAdmin):
     date_hierarchy = 'dt'
-    list_display = ('en', 'zh', 'exp', 'dt')
+    list_display = ('en', 'zh', 'exp', 'dt', 'was_added_recently')
     fieldsets = [
         ('word', {'fields': ['en', 'zh']}),
         ('explanation', {'fields':['exp']}),
