@@ -1,11 +1,13 @@
 # coding: utf-8
 ################################### 
-# 2016/1/22
+# 2016/1/26
 # pc
 ###################################
 from django.conf.urls import url
 from . import views
 
+# for django-1.9
+#app_name = 'charade'
 urlpatterns = [
     # ex: /
     url(r'^$', views.game_ready, name='game_ready'),

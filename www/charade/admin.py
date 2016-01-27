@@ -1,6 +1,6 @@
 # coding: utf-8
 ###################################
-# 2016/1/25
+# 2016/1/26
 # pc
 ###################################
 from django.contrib import admin
@@ -11,13 +11,13 @@ from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
 
 class VocabularyAdmin(admin.ModelAdmin):
     date_hierarchy = 'dt'
-    list_display = ('en', 'zh', 'exp', 'dt', 'was_added_recently')
-    fieldsets = [
-        ('word', {'fields': ['en', 'zh']}),
-        ('explanation', {'fields':['exp']}),
-    ]
+    list_display = ('id', 'en', 'zh', 'exp', 'dt', 'was_added_recently')
     list_filter = ['dt']
     search_fields = ['en']
+    fieldsets = [
+        (None, {'fields': ['en']}),
+        ('Explanation', {'fields':['zh', 'exp']}),
+    ]
 
 
 class GameTemporaryTableInline(admin.TabularInline):
@@ -25,12 +25,11 @@ class GameTemporaryTableInline(admin.TabularInline):
     extra = 0
 
 class GameScoreBoardAdmin(admin.ModelAdmin):
+    list_display = ('id', 'amount', 'scores', 'dt_start', 'dt_end')
     fieldsets = [
-        (None,               {'fields': ['amount']}),
-        (None,               {'fields': ['scores']}),
+        ('Summary',               {'fields': ['amount', 'scores']}),
     ]
     inlines = [GameTemporaryTableInline]
-    list_display = ('id', 'amount', 'scores', 'dt_start', 'dt_end')
 
 
 admin.site.register(Vocabulary, VocabularyAdmin)

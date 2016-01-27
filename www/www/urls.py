@@ -25,8 +25,12 @@ urlpatterns = [
 
     ###### apps
     # ex: /charade/
+    # for django-1.9
+    #url(r'^charade/', include('charade.urls'),
     url(r'^charade/', include('charade.urls', namespace='charade')),
     # ex: /polls/
+    # for django-1.9
+    #url(r'^polls/', include('polls.urls'),
     url(r'^polls/', include('polls.urls', namespace='polls')),
 
     ###### admin

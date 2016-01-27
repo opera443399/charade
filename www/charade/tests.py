@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/25
+# 2016/1/26
 # pc
 ###################################
 from django.test import TestCase
@@ -49,6 +49,13 @@ def create_word(en):
     return Vocabulary.objects.create(en=en, zh=han, exp=han)
 
 class VocabularyViewTests(TestCase):
+    def test_index_view(self):
+        """
+        index --01
+        """
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 302)
+
     def test_game_ready_view_default(self):
         """
         game_ready --01
