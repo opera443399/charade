@@ -23,21 +23,20 @@ urlpatterns = [
     # ex: /
     url(r'^$', charade_views.index, name='index'),
 
-    ###### apps
+    #################################### apps
+    #
     # ex: /charade/
-    # for django-1.9
-    #url(r'^charade/', include('charade.urls'),
-    url(r'^charade/', include('charade.urls', namespace='charade')),
+    url(r'^charade/', include('charade.urls')),
     # ex: /polls/
-    # for django-1.9
-    #url(r'^polls/', include('polls.urls'),
-    url(r'^polls/', include('polls.urls', namespace='polls')),
+    url(r'^polls/', include('polls.urls')),
 
-    ###### admin
+    #################################### admin
+    #
     # ex: /admin/
     url(r'^admin/', include(admin.site.urls)),
 
-    ###### auth
+    #################################### auth
+    #
     # ex: /accounts/login/
     url(r'^accounts/login/$', auth_views.login, name='auth_login'),
     # ex: /accounts/logout/

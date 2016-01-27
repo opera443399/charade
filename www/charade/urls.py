@@ -6,8 +6,7 @@
 from django.conf.urls import url
 from . import views
 
-# for django-1.9
-#app_name = 'charade'
+app_name = 'charade'
 urlpatterns = [
     # ex: /
     url(r'^$', views.game_ready, name='game_ready'),

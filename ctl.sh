@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# 2016/1/25
+# 2016/1/27
 
 source_path='/opt/charade'
 
@@ -17,9 +17,14 @@ function do_online(){
     fi
 }
 
-function do_co(){
+function do_static(){
     cd "${source_path}/www"
     python manage.py collectstatic
+}
+
+function do_test(){
+    cd "${source_path}/www"
+    python manage.py test
 }
 
 function do_reload(){
@@ -32,9 +37,10 @@ function do_reload(){
 function usage(){
     cat <<_EOF
 
-USAGE: $0 [gp|co|online|reload] 
+USAGE: $0 [static|test|online|reload] 
 
-    co      :     collectstatic
+    static  :     collectstatic
+    test    :     test
     online  :     chown to nobody and reload
     reload  :     reload supervisor
 
@@ -42,7 +48,7 @@ _EOF
 }
 
 case $1 in
-    co|online|reload)
+    static|test|online|reload)
         do_$1
         ;;
     *)
