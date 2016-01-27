@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/25
+# 2016/1/26
 # pc
 ###################################
 from django.shortcuts import get_object_or_404, render
@@ -30,8 +30,8 @@ def game_set(request):
     try:
         amount = int(request.POST['amount'])
     except (KeyError, ValueError):
-        msgs = "[ERROR] Set the number before you can play."
-        print msgs
+        #msgs = "[ERROR] Set the number before you can play."
+        #print msgs
         return HttpResponseRedirect(reverse('charade:game_ready'))
     else:
         GameTemporaryTable.objects.all().delete()
