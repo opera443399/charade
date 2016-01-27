@@ -39,7 +39,7 @@ urlpatterns = [
 
     ###### auth
     # ex: /accounts/login/
-    url(r'^accounts/login/$', auth_views.login),
+    url(r'^accounts/login/$', auth_views.login, name='auth_login'),
     # ex: /accounts/logout/
-    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}),
+    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}, name='auth_logout'),
 ]

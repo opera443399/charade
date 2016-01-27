@@ -37,7 +37,7 @@
         <div class="col-md-4">
         {% if user.is_authenticated %}
             <p></p>
-            <a href="{% url 'django.contrib.auth.views.logout' %}" title="logout">Logout</a>
+            <a href="{% url 'auth_logout' %}" title="logout">Logout</a>
             |<strong>
             Welcome, {{ user.username }}
             </strong>
