@@ -1,13 +1,13 @@
 {% extends 'charade/base.html' %}
 {% block title %}explanation{% endblock %}
 {% block content %}
-{% if gametemporarytable %}
+{% if vocabulary %}
     <div class="row text-center">
-        <p style="font-size: 160px;color: black;">{{ gametemporarytable.en }}</p>
+        <p style="font-size: 160px;color: black;">{{ vocabulary.en }}</p>
     </div>
     <div class="row">
-        <p class="text-success">中文：{{ gametemporarytable.zh }}</p>
-        <p class="text-success">解释：{{ gametemporarytable.exp }}</p>
+        <p class="text-success">中文：{{ vocabulary.zh }}</p>
+        <p class="text-success">解释：{{ vocabulary.exp }}</p>
     </div>
 {% else %}
     <div class="row text-center">

@@ -1,6 +1,6 @@
 # coding: utf-8
 ###################################
-# 2016/1/25
+# 2016/1/29
 # pc
 ###################################
 from __future__ import unicode_literals
@@ -51,6 +51,7 @@ class GameTemporaryTable(models.Model):
     exp = models.TextField('解释', max_length=200, null=True)
     scores = models.IntegerField('得分', default=0)
     used = models.IntegerField('used', default=0)
+    vid = models.IntegerField('vid', default=0)
 
 
     def __str__(self):

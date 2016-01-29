@@ -6,6 +6,7 @@
         <p class="text-center"><strong>{{ msgs }}<strong></p>
     </div>
 {% endif %}
+{% if word_list %}
 {% for w in word_list %}
     <div class="row text-center">
         <form action="{% url 'charade:game_score' w.id %}" method="post">
@@ -21,7 +22,7 @@
         </form>
     </div>
     <div class="row text-center">
-        <a href="{% url 'charade:explanation' w.id %}" target="_blank">
+        <a href="{% url 'charade:explanation' w.vid %}" title="Explanation" target="_blank">
             <p style="font-size: 160px;color: black;">{{ w.en }}</p>
         </a>
     </div>
@@ -29,4 +30,28 @@
         <p class="text-success">{{ w.zh }}</p>
     </div>
 {% endfor %}
+{% endif %}
+{% if used_word_list %}
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+            <caption class="text-center">Review</caption>
+            <thead>
+                <tr>
+                    <th>en</th>
+                    <th>zh</th>
+                    <th>scores</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for w in used_word_list %}
+                <tr>
+                    <td><a href="{% url 'charade:explanation' w.vid %}" title="Explanation" target="_blank">{{ w.en }}</a></td>
+                    <td>{{ w.zh }}</td>
+                    <td>{{ w.scores }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
 {% endblock %}

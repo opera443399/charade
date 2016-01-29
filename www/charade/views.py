@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/26
+# 2016/1/29
 # pc
 ###################################
 from django.shortcuts import get_object_or_404, render
@@ -21,12 +21,15 @@ def index(request):
 
 
 def game_ready(request):
-    """"ready to go"""
+    """"ready to go."""
     return render(request, 'charade/ready.html')
 
 
 def game_set(request):
-    """fetch some words into temporary table"""
+    """
+        crate new board in GameScoreBoard(gsb).
+        generate GameTemporaryTable(gtt).
+    """
     try:
         amount = int(request.POST['amount'])
     except (KeyError, ValueError):
@@ -35,58 +38,70 @@ def game_set(request):
         return HttpResponseRedirect(reverse('charade:game_ready'))
     else:
         GameTemporaryTable.objects.all().delete()
-        tmp_word_list = Vocabulary.objects.order_by('?')[:amount]
-        tmp_board = GameScoreBoard.objects.create(amount=amount)
-        tmp_table = GameScoreBoard.objects.get(pk=tmp_board.id)
-        for w in tmp_word_list:
-            tmp_table.gametemporarytable_set.create(en=w.en, zh=w.zh, exp=w.exp)
+        random_word_list = Vocabulary.objects.order_by('?')[:amount]
+        new_board = GameScoreBoard.objects.create(amount=amount)
+        gsb = GameScoreBoard.objects.get(pk=new_board.id)
+        for w in random_word_list:
+            gsb.gametemporarytable_set.create(en=w.en, zh=w.zh, exp=w.exp, vid=w.id)
 
-        return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_board.id,)))
+        return HttpResponseRedirect(reverse('charade:game_play', args=(new_board.id,)))
 
 
 def game_play(request, board_id):
-    """show the word by random """
-    tmp_table = get_object_or_404(GameScoreBoard, pk=board_id)
-    tmp_word_list = tmp_table.gametemporarytable_set.exclude(used=1).order_by('?')[:1]
-    if tmp_word_list:
-        context = {'word_list': tmp_word_list}
+    """
+        fetch unused word one at a time.
+        update scores info in GameScoreBoard(gsb) when game over.
+    """
+    gsb = get_object_or_404(GameScoreBoard, pk=board_id)
+    unused_word_list = gsb.gametemporarytable_set.exclude(used=1).order_by('?')[:1]
+    if unused_word_list:
+        context = {'word_list': unused_word_list}
     else:
         sum_scores = 0
-        all_used_words = tmp_table.gametemporarytable_set.filter(used=1)
-        for w in all_used_words:
+        used_word_list = gsb.gametemporarytable_set.filter(used=1)
+        for w in used_word_list:
             sum_scores += w.scores
-        tmp_table.scores = sum_scores
-        tmp_table.dt_end = timezone.now()
-        tmp_table.save()
+        gsb.scores = sum_scores
+        gsb.dt_end = timezone.now()
+        gsb.save()
         msgs = 'team: {0}, scores: {1}'.format(board_id, sum_scores)
-        context = {'msgs': msgs}
+        context = {'msgs': msgs,
+                   'used_word_list': used_word_list,
+                    }
     return render(request, 'charade/play.html', context)
 
 
 def game_score(request, wid):
-    """score the word."""
-    tmp_table = get_object_or_404(GameTemporaryTable, pk=wid)
+    """
+        score the word.
+        fetch next word from GameTemporaryTable(gtt).
+    """
+    gtt = get_object_or_404(GameTemporaryTable, pk=wid)
     try:
         s = int(request.POST['scores'])
     except (KeyError):
         # Redisplay the form.
-        tmp_word_list = [tmp_table]
+        tmp_word_list = [gtt]
         return render(request, 'charade/play.html', {
             'word_list': tmp_word_list,
             'msgs': "You didn't select a choice.",
         })
     else:
-        tmp_table.scores = s
-        tmp_table.used = 1
-        tmp_table.save()
-        return HttpResponseRedirect(reverse('charade:game_play', args=(tmp_table.board_id,)))
+        gtt.scores = s
+        gtt.used = 1
+        gtt.save()
+        return HttpResponseRedirect(reverse('charade:game_play', args=(gtt.board_id,)))
     
 
 @login_required
 def game_board(request):
-    """show the scores board of this game."""
+    """
+        show the scores board.
+        login is required.
+    """
     game_score_board = GameScoreBoard.objects.order_by('-dt_start')
-    paginator = Paginator(game_score_board, 5) # show 5 rows per page
+    ## pagenation: show 5 rows per page
+    paginator = Paginator(game_score_board, 5)
     page = request.GET.get('page')
     try:
         board = paginator.page(page)
@@ -98,9 +113,10 @@ def game_board(request):
 
     return render(request, 'charade/board.html', context)
 
+
 class Explanation(generic.DetailView):
     """Word Explanation"""
-    model = GameTemporaryTable
+    model = Vocabulary
     template_name = 'charade/explanation.html'
 
 
@@ -112,6 +128,7 @@ def show_about(request):
     """test cache"""
     return render(request, 'charade/about.html')
     
+
 def show_meta(request):
     """test use only"""
     metas = request.META.items()
