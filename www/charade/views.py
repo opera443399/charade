@@ -64,7 +64,7 @@ def game_play(request, board_id):
         gsb.scores = sum_scores
         gsb.dt_end = timezone.now()
         gsb.save()
-        msgs = 'team: {0}, scores: {1}'.format(board_id, sum_scores)
+        msgs = 'team: {0}, number of words: {1}, scores: {2}'.format(board_id, gsb.amount, sum_scores)
         context = {'msgs': msgs,
                    'used_word_list': used_word_list,
                     }
