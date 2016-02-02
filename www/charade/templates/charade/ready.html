@@ -1,5 +1,9 @@
 {% extends 'charade/base.html' %}
-{% block title %} let's charade {% endblock %}
+{% load staticfiles %}
+{% block titles %} let's charade {% endblock %}
+{% block js4this %}
+    <script src="{% static 'charade/js/charade-ready.js' %}"></script>
+{% endblock %}
 {% block content %}
         <div class="row text-center">
             <form class="form-inline" role="form" id="setting" action="{% url 'charade:game_set' %}" method="post">

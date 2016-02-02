@@ -1,5 +1,9 @@
 {% extends "charade/base.html" %}
-{% block title %}Login{% endblock %}
+{% load staticfiles %}
+{% block titles %}Login{% endblock %}
+{% block js4this %}
+    <script src="{% static 'charade/js/charade-login.js' %}"></script>
+{% endblock %}
 {% block content %}
 <div class="row text-center">
     {% if form.errors %}

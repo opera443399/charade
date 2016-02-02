@@ -1,10 +1,10 @@
 #!/bin/bash
 # 
-# 2016/1/27
+# 2016/2/2
 
 source_path='/opt/charade'
 
-function do_online(){
+function do_f(){
     # find /opt/charade/www/ ! -user nobody -print
     n=`find "${source_path}/www" ! -user nobody -print |wc -l`
     if [ $n -eq 0 ]; then
@@ -13,21 +13,21 @@ function do_online(){
         echo '[-] List the files that should chown to nobody:'
         find "${source_path}/www" ! -user nobody -print
         chown nobody:nobody -R "${source_path}/www"
-        do_reload
+        do_r
     fi
 }
 
-function do_static(){
+function do_c(){
     cd "${source_path}/www"
     python manage.py collectstatic
 }
 
-function do_test(){
+function do_t(){
     cd "${source_path}/www"
     python manage.py test
 }
 
-function do_reload(){
+function do_r(){
     supervisorctl status
     supervisorctl reload
     sleep 2
@@ -37,18 +37,18 @@ function do_reload(){
 function usage(){
     cat <<_EOF
 
-USAGE: $0 [static|test|online|reload] 
+USAGE: $0 [c|f|r|t] 
 
-    static  :     collectstatic
-    test    :     test
-    online  :     chown to nobody and reload
-    reload  :     reload supervisor
+    c  :     collectstatic
+    f  :     chown to nobody and reload
+    r  :     reload supervisor
+    t  :     test
 
 _EOF
 }
 
 case $1 in
-    static|test|online|reload)
+    c|f|r|t)
         do_$1
         ;;
     *)

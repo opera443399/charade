@@ -1,5 +1,9 @@
 {% extends 'charade/base.html' %}
-{% block title %}play{% endblock %}
+{% load staticfiles %}
+{% block titles %}play{% endblock %}
+{% block js4this %}
+    <script src="{% static 'charade/js/charade-play.js' %}"></script>
+{% endblock %}
 {% block content %}
 {% if msgs %}
     <div class="row">
@@ -52,6 +56,10 @@
             {% endfor %}
             </tbody>
         </table>
+    </div>
+{% else %}
+    <div class="row">
+        <p class="text-center" id="showtime"></p>
     </div>
 {% endif %}
 {% endblock %}

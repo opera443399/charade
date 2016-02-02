@@ -5,13 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %} base template {% endblock %}</title>
+    <title>{% block titles %} base template {% endblock %}</title>
     <meta name="Description" content="">
     <meta name="Keywords" content="">
     <link rel="shortcut icon" href="{% static 'charade/images/favicon.ico' %}" type="image/x-icon">
     <!-- jQuery Start -->
     <script src="{% static 'charade/js/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'charade/js/main.js' %}"></script>
+    <script src="{% static 'charade/js/charade-base.js' %}"></script>
+    {% block js4this %}{% endblock %}
     <!-- End of jQuery -->
     <!-- Bootstrap Start -->
     <script src="{% static 'charade/js/bootstrap.min.js' %}"></script>

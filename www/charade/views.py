@@ -1,6 +1,6 @@
 # coding: utf-8
 ################################### 
-# 2016/1/29
+# 2016/2/2
 # pc
 ###################################
 from django.shortcuts import get_object_or_404, render
@@ -11,6 +11,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required 
 from django.views.decorators.cache import cache_page
+from django.http import JsonResponse
+import time
 
 from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
 
@@ -121,6 +123,12 @@ class Explanation(generic.DetailView):
 
 
 ################################################### test use only.
+
+
+def show_time(request):
+    """test ajax"""
+    now = time.strftime('%H:%M:%S')
+    return JsonResponse({'now': now}) 
 
 
 @cache_page(60 * 15)
