@@ -48,8 +48,3 @@ Temporary Items
 
 # Temporary
 *.pyc
-
-# dirs 
-/www/charade/migrations
-/www/polls/migrations
-
