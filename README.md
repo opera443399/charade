@@ -1,6 +1,6 @@
 初探django-演示charade在centos7下的部署
 =======================================
-2016/1/20
+2016/2/15
 
 ####charade 是一个猜单词的小游戏。
 https://github.com/opera443399/charade
@@ -14,6 +14,7 @@ prepare
         django 项目用到了 pytz
         [root@tvm001 ~]# pip install pytz
 
+
 2. 调整 project setting ::
 
         [root@tvm001 ~]# cd /opt
@@ -21,7 +22,8 @@ prepare
         [root@tvm001 opt]# git clone https://github.com/opera443399/charade.git
         [root@tvm001 opt]# cd charade/www/
 
-6. 试着运行一下 ::
+
+3. 试着运行一下 ::
 
         django默认是启用了 DEBUG 选项，但 charade 这个项目的代码已经关闭 DEBUG 选项，并设置了 ALLOWED_HOSTS 和 STATIC_ROOT ：
         [root@tvm001 www]# vim www/settings.py
@@ -40,15 +42,35 @@ prepare
         在浏览器访问，测试确认后台的数据读写无异常后，停止运行，后续将使用uwsgi来管理。
     
 
-7. admin后台 ::
+4. admin后台 ::
 
         [root@tvm001 www]# python manage.py createsuperuser
         根据提示创建root密码用于登录后台。
         访问地址：http://you_server_ip/admin/
 
-8. debug ::
+
+5. debug ::
 
         DEBUG 选项处于关闭状态时，则 django 不处理静态文件，此时应该配置nginx或apache来处理静态文件。
+
+
+6. cache ::
+
+        演示了 memcache 的使用，不需要应移除以下内容，否则需要安装并启用memcache服务。
+        [root@tvm001 www]# vim www/settings.py
+        CACHES = {
+            'default': {
+                'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+                'LOCATION': '127.0.0.1:11211',
+            }
+        }
+
+        [root@tvm001 www]# vim charade/views.py
+        @cache_page(60 * 15)
+        def show_about(request):
+            """test cache"""
+            return render(request, 'charade/about.html')
+
     
     
 uwsgi+supervisord+nginx
