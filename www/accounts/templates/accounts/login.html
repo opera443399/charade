@@ -7,28 +7,28 @@
 {% block content %}
 <div class="row text-center">
     {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        <p class="text-danger">Your username and password didn't match. Please try again.</p>
     {% endif %}
     {% if next %}
         {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
+        <p class="text-warning">Your account doesn't have access to this page. To proceed,
         please login with an account that has access.</p>
         {% else %}
-        <p>Please login to see this page.</p>
+        <p class="text-info">Please login to see this page.</p>
         {% endif %}
     {% endif %}
 </div>
 <div class="row text-center">
 <div class="col-md-4"></div>
 <div class="col-md-4">
-    <form class="form-horizontal" method="post" action="{% url 'auth_login' %}">
+    <form class="form-horizontal" method="post" action="{% url 'accounts:login' %}">
     {% csrf_token %}
     <div class="form-group">
-        <label class="control-label" for="id_username">username:</label>
+        <label class="control-label" for="id_username">username :</label>
         {{ form.username }}
     </div>
     <div class="form-group">
-        <label class="control-label" for="id_password">password:</label>
+        <label class="control-label" for="id_password">password :</label>
         {{ form.password }}
     </div>
     <div class="form-group">

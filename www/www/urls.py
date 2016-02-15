@@ -15,30 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 
 from charade import views as charade_views
 
 urlpatterns = [
-    # ex: /
     url(r'^$', charade_views.index, name='index'),
 
     #################################### apps
     #
-    # ex: /charade/
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^charade/', include('charade.urls')),
-    # ex: /polls/
     url(r'^polls/', include('polls.urls')),
 
     #################################### admin
     #
-    # ex: /admin/
     url(r'^admin/', include(admin.site.urls)),
 
-    #################################### auth
-    #
-    # ex: /accounts/login/
-    url(r'^accounts/login/$', auth_views.login, name='auth_login'),
-    # ex: /accounts/logout/
-    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}, name='auth_logout'),
 ]
