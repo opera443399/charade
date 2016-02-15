@@ -4,6 +4,9 @@
 {% block js4this %}
     <script src="{% static 'charade/js/charade-play.js' %}"></script>
 {% endblock %}
+{% block css4this %}
+    <link rel="stylesheet" href="{% static 'charade/css/charade-play.css' %}">
+{% endblock %}
 {% block content %}
 {% if msgs %}
     <div class="row">
@@ -15,7 +18,7 @@
     <div class="row text-center">
         <form action="{% url 'charade:game_score' w.id %}" method="post">
             {% csrf_token %}
-            <strong>scores:<strong>
+            <strong>scores :<strong>
             <label class="radio-inline">
                 <input type="radio" name="scores" id="choice1" value="1">1 point
             </label>
@@ -27,7 +30,7 @@
     </div>
     <div class="row text-center">
         <a href="{% url 'charade:explanation' w.vid %}" title="Explanation" target="_blank">
-            <p style="font-size: 160px;color: black;">{{ w.en }}</p>
+            <p class="vocabulary-en">{{ w.en }}</p>
         </a>
     </div>
     <div class="row">

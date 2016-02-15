@@ -1,9 +1,13 @@
 {% extends 'charade/base.html' %}
+{% load staticfiles %}
 {% block titles %}explanation{% endblock %}
+{% block css4this %}
+    <link rel="stylesheet" href="{% static 'charade/css/charade-play.css' %}">
+{% endblock %}
 {% block content %}
 {% if vocabulary %}
     <div class="row text-center">
-        <p style="font-size: 160px;color: black;">{{ vocabulary.en }}</p>
+        <p class="vocabulary-en">{{ vocabulary.en }}</p>
     </div>
     <div class="row">
         <p class="text-success">中文：{{ vocabulary.zh }}</p>

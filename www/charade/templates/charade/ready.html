@@ -5,15 +5,17 @@
     <script src="{% static 'charade/js/charade-ready.js' %}"></script>
 {% endblock %}
 {% block content %}
-        <div class="row text-center">
-            <form class="form-inline" role="form" id="setting" action="{% url 'charade:game_set' %}" method="post">
-                <div class="form-group">
-                    Jump to: <a href="{% url 'polls:index' %}" title="Have a try?">Polls</a>
-                    View: <a href="{% url 'charade:game_board' %}" title="Login needed">Score-Board</a>
-                    {% csrf_token %}
-                    <input class="form-control" type="text" id="amount" name="amount" placeholder="number of words" maxlength="3">
-                    <button type="button" class="btn btn-primary" id="ready2go">Play</button>
-                </div>
-            </form>
-        </div>
+    <div class="row text-center">
+        <a href="{% url 'polls:index' %}" title="jump to polls">Polls</a>
+        <strong><a href="{% url 'charade:game_board' %}" title="Login needed">Score-Board</a></strong>
+        <p></p>
+        <form class="form-inline" role="form" id="setting" action="{% url 'charade:game_set' %}" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <input class="form-control" type="text" id="amount" name="amount" placeholder="number of words" maxlength="3">
+                <p></p>
+                <button type="button" class="btn btn-primary btn-block" id="ready2go">Play</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
