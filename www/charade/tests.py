@@ -1,8 +1,10 @@
-# coding: utf-8
-################################### 
-# 2016/1/26
-# pc
+# -*- coding: utf-8 -*-
 ###################################
+# @ Django 1.9.1
+# @ 2016-02-15
+# @ pc
+###################################
+
 from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse

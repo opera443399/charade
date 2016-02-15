@@ -1,8 +1,10 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 ###################################
-# 2016/1/26
-# pc
+# @ Django 1.9.1
+# @ 2016-02-15
+# @ pc
 ###################################
+
 from django.contrib import admin
 
 from .models import Vocabulary, GameTemporaryTable, GameScoreBoard

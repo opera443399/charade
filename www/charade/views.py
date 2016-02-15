@@ -1,8 +1,10 @@
-# coding: utf-8
-################################### 
-# 2016/2/2
-# pc
+# -*- coding: utf-8 -*-
 ###################################
+# @ Django 1.9.1
+# @ 2016-02-15
+# @ pc
+###################################
+
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse

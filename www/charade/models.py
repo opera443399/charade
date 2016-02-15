@@ -1,8 +1,10 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 ###################################
-# 2016/1/29
-# pc
+# @ Django 1.9.1
+# @ 2016-02-15
+# @ pc
 ###################################
+
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
 

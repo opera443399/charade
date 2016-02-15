@@ -1,8 +1,10 @@
-# coding: utf-8
-################################### 
-# 2016/2/15
-# pc
+# -*- coding: utf-8 -*-
 ###################################
+# @ Django 1.9.1
+# @ 2016-02-15
+# @ pc
+###################################
+
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
