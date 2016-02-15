@@ -25,7 +25,7 @@
 
     <!-- Nav Start -->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-xs-4 col-sm-4">
             <p></p>
             <a href="/">
                 <img class="img-rounded" style="width: 48px; height: 48px;" 
@@ -33,9 +33,9 @@
                     alt="Home" title="Back Home? Click me."></img>
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4 col-sm-4">
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4 col-sm-4">
         {% if user.is_authenticated %}
             <p></p>
             <a href="{% url 'accounts:logout' %}" title="logout">Logout</a>
@@ -49,20 +49,20 @@
 
     <!-- Header Start -->
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-xs-2 col-sm-2">
         </div>
-        <div class="col-md-8">
+        <div class="col-xs-8 col-sm-8">
             <h3 id="tips" class="text-center">
                 <small id="tips1">English Corner</small>
                 <a href="{% url 'charade:show_about' %}" title="About">'.'</a>
                 <strong id="tips2">Let's charade</strong>
             </h3>
         </div>
-        <div class="col-md-2">
+        <div class="col-xs-2 col-sm-2">
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-6 col-sm-6">
             <pre id="quote">
     Hi, Chaos!
     Just do it, and do it regularly as a ritual.
@@ -71,7 +71,7 @@
                                -- #just remind you#
             </pre>
         </div>
-        <div class="col-md-6">
+        <div class="col-xs-6 col-sm-6">
             <pre id="help">
     [help]:
         1]. Input the number of words that the Game needs.
