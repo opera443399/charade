@@ -10,7 +10,7 @@
 {% block content %}
 {% if msgs %}
     <div class="row">
-        <p class="text-center"><strong>{{ msgs }}<strong></p>
+        <em><h3><p class="text-success text-center"><strong>{{ msgs }}<strong></p></h3></em>
     </div>
 {% endif %}
 {% if word_list %}
@@ -18,13 +18,15 @@
     <div class="row text-center">
         <form action="{% url 'charade:game_score' w.id %}" method="post">
             {% csrf_token %}
-            <strong>scores :<strong>
-            <label class="radio-inline">
-                <input type="radio" name="scores" id="choice1" value="1">1 point
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="scores" id="choice2" value="2" checked>2 points
-            </label>
+            <em>
+                <strong>scores :<strong>
+                <label class="radio-inline">
+                    <input type="radio" name="scores" id="choice1" value="1">1 point
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="scores" id="choice2" value="2" checked>2 points
+                </label>
+            </em>
             <button type="submit" class="btn btn-primary">Next</button>
         </form>
     </div>

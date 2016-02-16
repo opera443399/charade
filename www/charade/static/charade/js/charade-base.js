@@ -6,6 +6,6 @@ $(document).ready(function(){
         $("#quote").slideToggle("slow");
     });
     $("#tips2").click(function(){
-        $("#help").fadeToggle("slow");
+        $("#help").slideToggle("slow");
     });
 });

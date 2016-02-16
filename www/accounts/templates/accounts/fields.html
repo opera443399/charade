@@ -1,0 +1,38 @@
+{% load extra_tags %}
+{% if not field.is_hidden %}
+            <div class="form-group">
+                <span class="application-label">
+                    <label for="{{ field.id_for_label }}">
+                    {{ field.label }}{% if field.field.required %}<span class="asterisk">*</span>{% endif %}
+                    </label>
+                </span>
+                {% if not field|is_checkbox %}
+                <span class="application-input">                
+                    {{ field }}
+                </span>
+                {% endif %}
+                {% if field.errors %}
+                <span>
+                    <ul class="ul-errorlist">
+                        {{ field.errors|unordered_list }}
+                    </ul>
+                </span>
+                {% endif %}
+            </div>
+            {% if field|is_checkbox %}
+            <div class="form-group">
+                {{ field }}
+            </div>
+            {% endif %}
+            {% if field.help_text %}
+            <div class="form-group">
+                <span class="text-help">
+                    {{ field.help_text|safe }}
+                </span>
+            </div>
+            {% endif %}
+{% else %}
+            <div class="form-group">
+                {{ field }}
+            </div>
+{% endif %}

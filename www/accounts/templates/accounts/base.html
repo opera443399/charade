@@ -8,16 +8,16 @@
     <title>{% block titles %} base template {% endblock %}</title>
     <meta name="Description" content="">
     <meta name="Keywords" content="">
-    <link rel="shortcut icon" href="{% static 'charade/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'accounts/images/favicon.ico' %}" type="image/x-icon">
     <!-- jQuery Start -->
-    <script src="{% static 'charade/js/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'charade/js/charade-base.js' %}"></script>
+    <script src="{% static 'accounts/js/jquery-2.2.0.min.js' %}"></script>
+    <script src="{% static 'accounts/js/accounts-base.js' %}"></script>
     {% block js4this %}{% endblock %}
     <!-- End of jQuery -->
     <!-- Bootstrap Start -->
-    <script src="{% static 'charade/js/bootstrap.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'charade/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'charade/css/charade-base.css' %}">
+    <script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts-base.css' %}">
     {% block css4this %}{% endblock %}
     <!-- End of Bootstrap -->
 </head>
@@ -30,7 +30,7 @@
         <div class="col-xs-3 col-sm-3">
             <p></p>
             <a href="/">
-                <img class="img-rounded img-avatar" src="{% static 'charade/images/header.jpg' %}" alt="Home" title="Back Home? Click me."></img>
+                <img class="img-rounded img-avatar" src="{% static 'accounts/images/header.jpg' %}" alt="Home" title="Back Home? Click me."></img>
             </a>
         </div>
         <div class="col-xs-6 col-sm-6">
@@ -53,9 +53,8 @@
         </div>
         <div class="col-xs-6 col-sm-6">
             <h3 id="tips" class="text-center">
-                <small id="tips1">English Corner</small>
-                <a href="{% url 'charade:show_about' %}" title="About">'.'</a>
-                <strong id="tips2">Let's charade</strong>
+                <strong id="tips1">Authantication</strong>
+                <strong id="tips2">System</strong>
             </h3>
         </div>
         <div class="col-xs-3 col-sm-3">
