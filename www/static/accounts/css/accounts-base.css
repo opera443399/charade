@@ -2,9 +2,8 @@
 
 .form-errors,
 .text-help,
-.ul-errorlist,
-.span-asterisk {font-size: 12px; float: right;}
+.ul-errorlist {font-size: 12px; float: right;}
 
 .form-errors,
-.span-asterisk,
-.ul-errorlist {color: red;}
+.ul-errorlist,
+.span-asterisk {color: red;}
