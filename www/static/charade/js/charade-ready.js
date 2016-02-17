@@ -6,13 +6,13 @@ function ready_set_go(){
         event.preventDefault();
         $("#warning").hide();
         $("#warning").text("Set the number before you can play.").slideDown('slow');
-        $("#amount").focus();
+        $("#amount").select();
     }
     else if(!r.test(n)){
         event.preventDefault();
         $("#warning").hide();
         $("#warning").text("Digit only. The value you set '" + n + "' is not valid.").slideDown('slow');
-        $("#amount").focus();
+        $("#amount").select();
     }
     else {
         event.preventDefault();
@@ -28,7 +28,7 @@ function ready_set_go(){
 };
 
 $(document).ready(function(){
-    $("#amount").focus();
+    $("#amount").select();
     $("#ready2go").click(function(){
         ready_set_go();
     });

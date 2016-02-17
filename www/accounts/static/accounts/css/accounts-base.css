@@ -1,6 +1,10 @@
 .img-avatar {width: 48px; height: 48px;}
-.application-input {float: right;}
-.application-label {float: left;}
+
+.form-errors,
 .text-help,
-.asterisk {float: right}
-.ul-errorlist {float: right; color: red;}
+.ul-errorlist,
+.span-asterisk {font-size: 12px; float: right;}
+
+.form-errors,
+.span-asterisk,
+.ul-errorlist {color: red;}

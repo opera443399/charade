@@ -1,0 +1,52 @@
+{% extends "accounts/base.html" %}
+{% load i18n staticfiles %}
+{% block titles %}Login{% endblock %}
+{% block js4this %}
+    <script src="{% static 'accounts/js/accounts-login.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="row text-center">
+    {% if form.errors %}
+        <p class="text-danger">
+            {% trans 'Your username and password did not match. Please try again.' %}
+        </p>
+    {% endif %}
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p class="text-warning">
+            {% trans 'Your account does not have access to this page. To proceed, please login with an account that has access.' %}
+        </p>
+        {% else %}
+        <p class="text-info">
+            {% trans 'Please login to see this page.' %}
+        </p>
+        {% endif %}
+    {% endif %}
+</div>
+<div class="row text-center">
+    <div class="col-xs-4 col-sm-4"></div>
+    <div class="col-xs-4 col-sm-4">
+        <form class="form-horizontal" method="post" action="{% url 'accounts:login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="control-label" for="id_username">
+                {% trans 'username :' %}
+            </label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="id_password">
+                {% trans 'password :' %}
+            </label>
+            {{ form.password }}
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="next" value="{{ next }}" />
+            <input type="submit" class="btn btn-primary btn-block" value="{% trans 'Login' %}" />
+            <a href="{% url 'accounts:registration' %}" class="btn btn-link btn-block">{% trans 'Create Account' %}</a>
+        </div>
+        </form>
+    </div>
+    <div class="col-xs-4 col-sm-4"></div>
+</div>
+{% endblock %}
