@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from charade import views as charade_views
-from accounts import views as accounts_views
 
 urlpatterns = [
     url(r'^$', charade_views.index, name='index'),
