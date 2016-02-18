@@ -8,19 +8,19 @@
             </div>
             {% endif %}
             <div class="form-group">
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <span class="span-left">
                     <label for="{{ field.id_for_label }}">
-                        {{ field.label }}
-                        {% if field.field.required %}
-                        <span class="span-asterisk">*</span>
-                        {% endif %}
+                    {{ field.label }}
                     </label>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                    {% if field.field.required %}
+                    <span class="span-asterisk">*</span>
+                    {% endif %}
+                </span>
+                <span class="span-right">
                     {% if not field|is_checkbox %}
                         {{ field }}
                     {% endif %}
-                </div>
+                </span>
             </div>
             {% if field.errors %}
             <div class="form-group">

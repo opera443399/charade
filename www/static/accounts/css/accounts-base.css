@@ -7,3 +7,5 @@
 .form-errors,
 .ul-errorlist,
 .span-asterisk {color: red;}
+.span-left {float: left;}
+.span-right {float: right;}
