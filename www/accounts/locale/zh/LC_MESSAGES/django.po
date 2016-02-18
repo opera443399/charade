@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-18 11:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: fields.py:26
+#, python-format
+msgid "Password too short (must be %s characters or more)"
+msgstr "密码长度不符合需求，至少包含 %s 个字符"
+
+#: fields.py:30
+#, python-format
+msgid "Password too long (must be %s characters or less)"
+msgstr "密码长度不符合需求，最多允许 %s 个字符"
+
+#: fields.py:36
+#, python-format
+msgid "Weak password, %s"
+msgstr "弱密码，%s"
+
+#: fields.py:61
+#, python-format
+msgid "must contain %(UPPER)s or more uppercase characters (A-Z)"
+msgstr "至少包含 %(UPPER)s  个大写字符 (A-Z)"
+
+#: fields.py:66
+#, python-format
+msgid "Must contain %(LOWER)s or more lowercase characters (a-z)"
+msgstr "至少包含 %(LOWER)s 个小写字符 (a-z)"
+
+#: fields.py:71
+#, python-format
+msgid "must contain %(DIGITS)s or more numbers (0-9)"
+msgstr "至少包含 %(DIGITS)s 个数字 (0-9)。"
+
+#: fields.py:76
+#, python-format
+msgid "must contain %(PUNCTUATION)s or more symbols"
+msgstr "至少包含 %(PUNCTUATION)s 个符号。"
+
+#: fields.py:82
+#, python-format
+msgid "Sorry, %s emails are not allowed. Please use a different email address."
+msgstr "抱歉，提供的 email 地址 %s 不可用，请尝试其他 email 地址"
+
+#: fields.py:94
+msgid "Enter a valid email address."
+msgstr "请输入一个有效的 email 地址"
+
+#: forms.py:22
+msgid "A user with that email already exists."
+msgstr "该 email 地址 已被使用"
+
+#: forms.py:23
+msgid "The two password fields didn't match."
+msgstr "两次输入的密码不一致"
+
+#: forms.py:26
+msgid "Email Address"
+msgstr "电子邮箱"
+
+#: forms.py:27
+msgid "Password"
+msgstr "密码"
+
+#: forms.py:29
+msgid "Password Confirmation"
+msgstr "确认密码"
+
+#: forms.py:30
+msgid "Enter the same password as above, for verification."
+msgstr "为了确认密码是否正确，请重复输入一次密码"
+
+#: templates/accounts/base.html:41
+msgid "Logout"
+msgstr "登出"
+
+#: templates/accounts/base.html:43
+msgid "Welcome"
+msgstr "欢迎您"
+
+#: templates/accounts/base.html:56
+msgid "Authantication System"
+msgstr "认证系统"
+
+#: templates/accounts/login.html:3 templates/accounts/login.html.py:21
+msgid "Login"
+msgstr "登录"
+
+#: templates/accounts/login.html:22
+msgid "Create Account"
+msgstr "创建账户"
+
+#: templates/accounts/registration.html:3
+#: templates/accounts/registration_closed.html:3
+#: templates/accounts/registration_finished.html:3
+msgid "Registration"
+msgstr "注册"
+
+#: templates/accounts/registration.html:20
+msgid "Apply"
+msgstr "申请"
+
+#: templates/accounts/registration_closed.html:8
+msgid "Sign Up Closed"
+msgstr "注册入口已关闭"
+
+#: templates/accounts/registration_closed.html:9
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "抱歉，目前已暂停注册"
+
+#: templates/accounts/registration_finished.html:8
+msgid "Registration Applied."
+msgstr "注册信息已受理"
+
+#: views.py:57
+msgid "Register"
+msgstr "注册"
+
+#: views.py:70
+msgid "Registration closed"
+msgstr "注册入口已关闭"
+
+#: views.py:84
+msgid "Registration finished"
+msgstr "注册信息已受理"

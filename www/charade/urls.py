@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-15
+# @ 2016-02-18
 # @ pc
 ###################################
 
@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^show/about/$', views.show_about, name='show_about'),
     url(r'^show/time/$', views.show_time, name='show_time'),
     #url(r'^show/meta/$', views.show_meta, name='show_meta'),
+    url(r'^show/lang/$', views.show_lang, name='show_lang'),
 ]

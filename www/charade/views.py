@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-15
+# @ 2016-02-18
 # @ pc
 ###################################
 
@@ -149,3 +149,10 @@ def show_meta(request):
         html.append('<tr><td>{0}</td><td>{1}</td></tr>'.format(k,v))
     content = '<table>{0}</table>'.format('\n'.join(html))
     return HttpResponse(content)
+
+
+def show_lang(request):
+    """test i18n only"""
+    msgs = 'language code: {0}'.format(request.LANGUAGE_CODE)
+    context = {'msgs': msgs}
+    return render(request, 'charade/i18n.html', context)
