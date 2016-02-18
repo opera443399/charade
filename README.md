@@ -1,6 +1,6 @@
 初探django-演示charade在centos7下的部署
 =======================================
-2016/2/15
+2016/2/18
 
 ####charade 是一个猜单词的小游戏。
 https://github.com/opera443399/charade
@@ -71,7 +71,45 @@ prepare
             """test cache"""
             return render(request, 'charade/about.html')
 
-    
+
+7. i18n(国际化和本地化) ::
+
+        增加中间件：locale
+        设置可选语言：LANGUAGES
+        [root@tvm01 www]# vim www/settings.py
+        MIDDLEWARE_CLASSES = [
+            （略）
+            'django.contrib.sessions.middleware.SessionMiddleware',
+            'django.middleware.locale.LocaleMiddleware',
+            'django.middleware.common.CommonMiddleware',
+            （略）
+        ]
+
+        LANGUAGES = [
+            ('en', 'English'),
+            ('zh-cn', 'zh'),
+        ]
+
+        启用 django 自带的语言偏好设置的视图
+        [root@tvm01 www]# vim www/urls.py
+        urlpatterns = [
+            （略）
+            url(r'^i18n/', include('django.conf.urls.i18n')),
+        ]
+
+
+        维护翻译文件，在每个 apps 目录下有一个 locale 目录，以 charade 为例：
+        创建或更新：
+        [root@tvm01 charade]# django-admin makemessages -l zh
+        对应的消息文本的路径：locale/zh/LC_MESSAGES/django.po
+
+        编译：
+        [root@tvm01 charade]# django-admin compilemessages
+        编译后的文件：locale/zh/LC_MESSAGES/django.mo
+
+        最后，重载（reload） web服务即可生效。
+
+
     
 uwsgi+supervisord+nginx
 ----------------------

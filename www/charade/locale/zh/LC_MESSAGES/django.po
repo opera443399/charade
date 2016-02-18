@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 12:01+0800\n"
+"POT-Creation-Date: 2016-02-18 15:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +16,103 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/charade/i18n.html:8
-msgid "translate"
-msgstr "测试翻译"
+#: templates/charade/base.html:42
+msgid "Logout"
+msgstr "登出"
 
-#: views.py:157
-msgid "language code: {0}"
-msgstr "语言： {0}"
+#: templates/charade/base.html:44
+msgid "Welcome"
+msgstr "欢迎您"
+
+#: templates/charade/board.html:8
+msgid "Previous"
+msgstr "上一页"
+
+#: templates/charade/board.html:15
+msgid "Next"
+msgstr "下一页"
+
+#: templates/charade/board.html:21
+msgid "Score Board"
+msgstr "积分榜"
+
+#: templates/charade/board.html:24
+msgid "Team id"
+msgstr "小组编号"
+
+#: templates/charade/board.html:25
+msgid "Amount of words"
+msgstr "单词总数"
+
+#: templates/charade/board.html:26 templates/charade/play.html.py:51
+msgid "Scores"
+msgstr "积分"
+
+#: templates/charade/board.html:27
+msgid "Start"
+msgstr "开始时间"
+
+#: templates/charade/board.html:28
+msgid "End"
+msgstr "结束时间"
+
+#: templates/charade/board.html:46 templates/charade/explanation.html.py:18
+msgid "Not available"
+msgstr "无记录"
+
+#: templates/charade/explanation.html:3 templates/charade/explanation.html:14
+msgid "Explanation"
+msgstr "解释"
+
+#: templates/charade/explanation.html:13 templates/charade/play.html.py:50
+msgid "Chinese"
+msgstr "中文"
+
+#: templates/charade/play.html:22
+msgid "scores"
+msgstr "积分"
+
+#: templates/charade/play.html:24
+msgid "point"
+msgstr "分"
+
+#: templates/charade/play.html:27
+msgid "points"
+msgstr "分"
+
+#: templates/charade/play.html:30
+msgid "Next One"
+msgstr "评分并继续"
+
+#: templates/charade/play.html:46
+msgid "Review"
+msgstr "复习"
+
+#: templates/charade/play.html:49
+msgid "English"
+msgstr "英文"
+
+#: templates/charade/ready.html:12
+msgid "Polls"
+msgstr "投票"
+
+#: templates/charade/ready.html:13
+msgid "Score-Board"
+msgstr "积分榜"
+
+#: templates/charade/ready.html:18
+msgid "number of words"
+msgstr "先来几十个单词试试呗"
+
+#: templates/charade/ready.html:20
+msgid "Play"
+msgstr "进入游戏"
+
+#: templates/charade/ready.html:33
+msgid "Region Select"
+msgstr "语言偏好"
+
+#: views.py:145
+#, python-format
+msgid "language code: %s"
+msgstr "页面语言编码：%s"

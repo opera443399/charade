@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load i18n staticfiles %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,20 +27,21 @@
 
     <!-- Nav Start -->
     <div class="row">
+        <p></p>
+    </div>
+    <div class="row">
         <div class="col-xs-3 col-sm-3">
-            <p></p>
             <a href="/">
-                <img class="img-rounded img-avatar" src="{% static 'charade/images/header.jpg' %}" alt="Home" title="Back Home? Click me."></img>
+                <img class="img-rounded img-avatar" src="{% static 'charade/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me."></img>
             </a>
         </div>
         <div class="col-xs-6 col-sm-6">
         </div>
         <div class="col-xs-3 col-sm-3">
         {% if user.is_authenticated %}
-            <p></p>
-            <a href="{% url 'accounts:logout' %}" title="logout">Logout</a>
+            <a href="{% url 'accounts:logout' %}" title="logout">{% trans 'Logout' %}</a>
             |<strong>
-            Welcome, {{ user.username }}
+            {% trans 'Welcome' %}, {{ user.username }}
             </strong>
         {% endif %}
         </div>

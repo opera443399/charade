@@ -1,6 +1,6 @@
 {% extends 'charade/base.html' %}
-{% load staticfiles %}
-{% block titles %} let's charade {% endblock %}
+{% load i18n staticfiles %}
+{% block titles %}let's charade{% endblock %}
 {% block js4this %}
     <script src="{% static 'charade/js/charade-ready.js' %}"></script>
 {% endblock %}
@@ -9,16 +9,40 @@
        <h3><p id="warning" class="text-danger text-center"></p></h3>
     </div>
     <div class="row text-center">
-        <a href="{% url 'polls:index' %}" title="jump to polls">Polls</a>
-        <strong><a href="{% url 'charade:game_board' %}" title="Login needed">Score-Board</a></strong>
+        <a href="{% url 'polls:index' %}" title="jump to polls">{% trans 'Polls' %}</a>
+        <strong><a href="{% url 'charade:game_board' %}" title="Login needed">{% trans 'Score-Board' %}</a></strong>
         <p></p>
-        <form class="form-inline" role="form" id="setting" action="{% url 'charade:game_set' %}" method="post">
+        <form class="form-inline" role="form" id="form-setting" action="{% url 'charade:game_set' %}" method="post">
             <div class="form-group">
                 {% csrf_token %}
-                <input class="form-control" type="text" id="amount" name="amount" placeholder="number of words" maxlength="3">
+                <input class="form-control" type="text" id="amount" name="amount" placeholder="{% trans 'number of words' %}" maxlength="3">
                 <p></p>
-                <button type="button" class="btn btn-primary btn-block" id="ready2go">Play</button>
+                <button type="button" class="btn btn-primary btn-block" id="ready2go">{% trans 'Play' %}</button>
             </div>
         </form>
     </div>
+
+    <!-- Language Start -->
+    <div class="row text-right">
+        <form class="form-inline" role="form" id="form-language" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <div class="form-group">
+                <select class="form-control" id="select-language" name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                        <option value="en" selected="selected">{% trans 'Region Select' %}</option>
+                    {% for language in languages %}
+                        <option value="{{ language.code }}">
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+            </div>
+        </form>
+    </div>
+    <!-- End of Language -->
+
 {% endblock %}

@@ -23,6 +23,6 @@ urlpatterns = [
     # simple test
     url(r'^show/about/$', views.show_about, name='show_about'),
     url(r'^show/time/$', views.show_time, name='show_time'),
-    #url(r'^show/meta/$', views.show_meta, name='show_meta'),
     url(r'^show/lang/$', views.show_lang, name='show_lang'),
+    #url(r'^show/meta/$', views.show_meta, name='show_meta'),
 ]

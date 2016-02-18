@@ -1,6 +1,6 @@
 {% extends 'charade/base.html' %}
-{% load staticfiles %}
-{% block titles %}explanation{% endblock %}
+{% load i18n staticfiles %}
+{% block titles %}{% trans 'Explanation' %}{% endblock %}
 {% block css4this %}
     <link rel="stylesheet" href="{% static 'charade/css/charade-play.css' %}">
 {% endblock %}
@@ -10,12 +10,12 @@
         <p class="vocabulary-en">{{ vocabulary.en }}</p>
     </div>
     <div class="row">
-        <p class="text-success">中文：{{ vocabulary.zh }}</p>
-        <p class="text-success">解释：{{ vocabulary.exp }}</p>
+        <p class="text-success">{% trans 'Chinese' %} : {{ vocabulary.zh }}</p>
+        <p class="text-success">{% trans 'Explanation' %} : {{ vocabulary.exp }}</p>
     </div>
 {% else %}
     <div class="row text-center">
-        <p class="text-warning">Not available.</p>
+        <p class="text-warning">{% trans 'Not available' %}.</p>
     </div>
 {% endif %}
 {% endblock %}

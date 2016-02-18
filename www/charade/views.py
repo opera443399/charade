@@ -14,6 +14,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required 
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
+from django.utils.translation import ugettext_lazy as _
 import time
 
 from .models import Vocabulary, GameTemporaryTable, GameScoreBoard
@@ -139,6 +140,13 @@ def show_about(request):
     return render(request, 'charade/about.html')
     
 
+def show_lang(request):
+    """test i18n only"""
+    msgs = _('language code: %s')
+    context = msgs % request.LANGUAGE_CODE
+    return HttpResponse(context)
+
+
 def show_meta(request):
     """test use only"""
     metas = request.META.items()
@@ -151,8 +159,3 @@ def show_meta(request):
     return HttpResponse(content)
 
 
-def show_lang(request):
-    """test i18n only"""
-    msgs = 'language code: {0}'.format(request.LANGUAGE_CODE)
-    context = {'msgs': msgs}
-    return render(request, 'charade/i18n.html', context)

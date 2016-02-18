@@ -20,7 +20,7 @@ function ready_set_go(){
         $("#warning").text("Ready!").fadeIn(1000).fadeOut(1500,function(){
             $("#warning").text("Set!").fadeIn(1000).fadeOut(1500,function(){
                 $("#warning").text("Go!").fadeIn(1000).fadeOut(1500,function(){
-                    $("#setting").submit();
+                    $("#form-setting").submit();
                 });
             });
         });
@@ -40,5 +40,9 @@ $(document).ready(function(){
             event.preventDefault();
             ready_set_go();
         }
+    });
+
+    $("#select-language").change(function(){
+        $("#form-language").submit();
     });
 });
