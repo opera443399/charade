@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 11:10+0800\n"
+"POT-Creation-Date: 2016-02-19 12:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,22 +34,22 @@ msgstr "弱密码，%s"
 #: fields.py:61
 #, python-format
 msgid "must contain %(UPPER)s or more uppercase characters (A-Z)"
-msgstr "至少包含 %(UPPER)s  个大写字符 (A-Z)"
+msgstr "请至少包含 %(UPPER)s  个大写字符 (A-Z)"
 
 #: fields.py:66
 #, python-format
 msgid "Must contain %(LOWER)s or more lowercase characters (a-z)"
-msgstr "至少包含 %(LOWER)s 个小写字符 (a-z)"
+msgstr "请至少包含 %(LOWER)s 个小写字符 (a-z)"
 
 #: fields.py:71
 #, python-format
 msgid "must contain %(DIGITS)s or more numbers (0-9)"
-msgstr "至少包含 %(DIGITS)s 个数字 (0-9)。"
+msgstr "请至少包含 %(DIGITS)s 个数字 (0-9)。"
 
 #: fields.py:76
 #, python-format
 msgid "must contain %(PUNCTUATION)s or more symbols"
-msgstr "至少包含 %(PUNCTUATION)s 个符号。"
+msgstr "请至少包含 %(PUNCTUATION)s 个符号。"
 
 #: fields.py:82
 #, python-format
@@ -84,23 +84,23 @@ msgstr "确认密码"
 msgid "Enter the same password as above, for verification."
 msgstr "为了确认密码是否正确，请重复输入一次密码"
 
-#: templates/accounts/base.html:41
+#: templates/accounts/base.html:43
 msgid "Logout"
 msgstr "登出"
 
-#: templates/accounts/base.html:43
+#: templates/accounts/base.html:45
 msgid "Welcome"
 msgstr "欢迎您"
 
-#: templates/accounts/base.html:56
+#: templates/accounts/base.html:58
 msgid "Authantication System"
 msgstr "认证系统"
 
-#: templates/accounts/login.html:3 templates/accounts/login.html.py:21
+#: templates/accounts/login.html:3 templates/accounts/login.html.py:22
 msgid "Login"
 msgstr "登录"
 
-#: templates/accounts/login.html:22
+#: templates/accounts/login.html:23
 msgid "Create Account"
 msgstr "创建账户"
 
@@ -110,19 +110,19 @@ msgstr "创建账户"
 msgid "Registration"
 msgstr "注册"
 
-#: templates/accounts/registration.html:20
+#: templates/accounts/registration.html:21
 msgid "Apply"
 msgstr "申请"
 
-#: templates/accounts/registration_closed.html:8
+#: templates/accounts/registration_closed.html:6
 msgid "Sign Up Closed"
 msgstr "注册入口已关闭"
 
-#: templates/accounts/registration_closed.html:9
+#: templates/accounts/registration_closed.html:7
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "抱歉，目前已暂停注册"
 
-#: templates/accounts/registration_finished.html:8
+#: templates/accounts/registration_finished.html:6
 msgid "Registration Applied."
 msgstr "注册信息已受理"
 
