@@ -16,10 +16,10 @@
 {% if word_list %}
 {% for w in word_list %}
     <div class="row text-center">
-        <form action="{% url 'charade:game_score' w.id %}" method="post">
+        <form class="form-inline" role="form" action="{% url 'charade:game_score' w.id %}" method="post">
             {% csrf_token %}
-            <em>
-                <strong>{% trans 'scores' %} :<strong>
+            <div class="form-group">
+                <strong>{% trans 'Make a Score' %} :<strong>
                 <label class="radio-inline">
                     <input type="radio" name="scores" id="choice1" value="1">1 {% trans 'point' %}
                 </label>
@@ -28,6 +28,7 @@
                 </label>
             </em>
             <button type="submit" class="btn btn-primary">{% trans 'Next One' %}</button>
+            </div>
         </form>
     </div>
     <div class="row text-center">

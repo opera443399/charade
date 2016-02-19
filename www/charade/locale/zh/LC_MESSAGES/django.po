@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 15:55+0800\n"
+"POT-Creation-Date: 2016-02-19 11:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr "小组编号"
 msgid "Amount of words"
 msgstr "单词总数"
 
-#: templates/charade/board.html:26 templates/charade/play.html.py:51
+#: templates/charade/board.html:26 templates/charade/play.html.py:52
 msgid "Scores"
 msgstr "积分"
 
@@ -64,13 +64,13 @@ msgstr "无记录"
 msgid "Explanation"
 msgstr "解释"
 
-#: templates/charade/explanation.html:13 templates/charade/play.html.py:50
+#: templates/charade/explanation.html:13 templates/charade/play.html.py:51
 msgid "Chinese"
 msgstr "中文"
 
 #: templates/charade/play.html:22
-msgid "scores"
-msgstr "积分"
+msgid "Make a Score"
+msgstr "请评分"
 
 #: templates/charade/play.html:24
 msgid "point"
@@ -84,11 +84,11 @@ msgstr "分"
 msgid "Next One"
 msgstr "评分并继续"
 
-#: templates/charade/play.html:46
+#: templates/charade/play.html:47
 msgid "Review"
 msgstr "复习"
 
-#: templates/charade/play.html:49
+#: templates/charade/play.html:50
 msgid "English"
 msgstr "英文"
 
@@ -116,3 +116,4 @@ msgstr "语言偏好"
 #, python-format
 msgid "language code: %s"
 msgstr "页面语言编码：%s"
+

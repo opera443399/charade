@@ -8,19 +8,17 @@
             </div>
             {% endif %}
             <div class="form-group">
-                <span class="span-left">
-                    <label for="{{ field.id_for_label }}">
-                    {{ field.label }}
-                    </label>
+                <label for="{{ field.id_for_label }}" class="col-sm-4 control-label">
                     {% if field.field.required %}
                     <span class="span-asterisk">*</span>
                     {% endif %}
-                </span>
-                <span class="span-right">
+                    {{ field.label }}
+                </label>
+                <div class="col-sm-8">
                     {% if not field|is_checkbox %}
-                        {{ field }}
+                        {{ field|css_class:'form-control' }}
                     {% endif %}
-                </span>
+                </div>
             </div>
             {% if field.errors %}
             <div class="form-group">
@@ -31,7 +29,9 @@
             {% endif %}
             {% if field|is_checkbox %}
             <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
                 {{ field }}
+                </div>
             </div>
             {% endif %}
 {% else %}
