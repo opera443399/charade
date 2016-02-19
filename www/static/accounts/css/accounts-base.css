@@ -1,11 +1,9 @@
 .img-avatar {width: 48px; height: 48px;}
 
-.form-errors,
 .text-help,
-.ul-errorlist {font-size: 12px; float: right;}
-
 .form-errors,
-.ul-errorlist,
-.span-asterisk {color: red;}
-.span-left {float: left;}
-.span-right {float: right;}
+.ul-errorlist {font-size: 12px;}
+
+.span-asterisk,
+.form-errors,
+.ul-errorlist {color: red;}

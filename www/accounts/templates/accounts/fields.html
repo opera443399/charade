@@ -2,9 +2,9 @@
 {% if not field.is_hidden %}
             {% if field.help_text %}
             <div class="form-group">
-                <span class="text-help">
+                <div class="col-sm-offset-4 col-sm-8 text-help">
                     {{ field.help_text|safe }}
-                </span>
+                </div>
             </div>
             {% endif %}
             <div class="form-group">

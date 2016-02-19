@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-18
 # @ pc
 ###################################
 
@@ -53,7 +53,7 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data['password1'])
-        user.is_active = not conf.NEET_VERIFY_EMAIL
+        user.is_active = conf.IS_AUTOACTIVE
         if commit:
             user.save()
         return user

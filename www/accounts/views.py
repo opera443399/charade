@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-18
 # @ pc
 ###################################
 
@@ -41,7 +41,7 @@ def registration(request,
         form = registration_form(request.POST)
         if form.is_valid():
             user = form.save()
-            if conf.REGISTRATION_IS_AUTOLOGIN:
+            if conf.REGISTRATION_IS_AUTOLOGIN and conf.IS_AUTOACTIVE:
                 user.backend = 'django.contrib.auth.backends.ModelBackend'
                 login(request, user)
             return redirect(post_registration_redirect)
