@@ -9,7 +9,6 @@ from django.shortcuts import render, redirect, resolve_url
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.contrib.auth import login
-from django.contrib.sites.shortcuts import get_current_site
 
 from .apps import AccountsConfig as conf
 from .forms import RegistrationForm
