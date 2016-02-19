@@ -13,7 +13,7 @@
             {% if form.errors %}
                 {% include "accounts/errors.html" %}
             {% endif %}
-            {% for field in form %}
+            {% for field in thisform %}
                 {% include "accounts/fields.html" %}
             {% endfor %}
             <div class="form-group">
