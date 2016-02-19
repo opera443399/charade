@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-15
+# @ 2016-02-16
 # @ pc
 ###################################
 
@@ -132,7 +132,7 @@ class VocabularyViewTests(TestCase):
         game_board --01
         """    
         response = self.client.get(reverse('charade:game_board'), follow=True)
-        self.assertContains(response, "Please login to see this page.", status_code=200)
+        self.assertContains(response, "Authantication System", status_code=200)
 
     def test_explanation_view_word_id_not_exist(self):
         """
@@ -151,7 +151,7 @@ class VocabularyViewTests(TestCase):
         self.client.post(reverse('charade:game_set'), {'amount': num_of_words,})
         word_id = 1
         response = self.client.get(reverse('charade:explanation', args=(word_id,)))
-        self.assertContains(response, "explanation", status_code=200)
+        self.assertContains(response, "Explanation", status_code=200)
 
 
 ########################################################### test details
