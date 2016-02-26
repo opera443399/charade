@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-26
 # @ pc
 ###################################
 
@@ -13,7 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 import string
 from .apps import AccountsConfig as conf
 
-class LengthValidator(object):
+class ValidateLength(object):
     code = 'length'
 
     def __init__(self, min_length=None, max_length=None):
@@ -31,7 +31,7 @@ class LengthValidator(object):
                 code=self.code)
 
 
-class ComplexityValidator(object):
+class ValidateComplexity(object):
     code = 'complexity'
     message = _('Weak password, %s')
 
@@ -78,7 +78,7 @@ class ComplexityValidator(object):
                 code=self.code)
 
 
-class EmailDomainValidator(object):
+class ValidateEmailFormat(object):
     message = _('Sorry, %s emails are not allowed. Please use a different email address.')
     code = 'invalid'
 
@@ -103,17 +103,17 @@ class EmailDomainValidator(object):
             raise forms.ValidationError(self.message % domain_part, code=self.code)
 
 
-length_validator = LengthValidator()
-complexity_validator = ComplexityValidator()
-validate_email_domain = EmailDomainValidator()
-
+validate_length = ValidateLength()
+validate_complexity = ValidateComplexity()
+validate_email_format = ValidateEmailFormat()
 
 
 class PasswordField(forms.CharField):
     widget = forms.PasswordInput()
-    default_validators = [length_validator, complexity_validator, ]
+    default_validators = [validate_length, validate_complexity]
 
 
 class UserEmailField(forms.EmailField):
-    default_validators = [validate_email, validate_email_domain]
+    default_validators = [validate_email, validate_email_format]
+
 

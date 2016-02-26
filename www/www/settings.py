@@ -105,14 +105,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # cache
-# memcache
+## memcache
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.xxx.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'test@xxx.com'
+EMAIL_HOST_PASSWORD = 'TestEmail'
+DEFAULT_FROM_EMAIL = 'TestEmail <test@xxx.com>'
 
 
 # Internationalization

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-26
 # @ pc
 ###################################
 
@@ -21,4 +21,7 @@ urlpatterns = [
     url(r'^registration/$', views.registration, name='registration'),
     url(r'^registration/closed/$', views.registration_closed, name='registration_closed'),
     url(r'^registration/finished/$', views.registration_finished, name='registration_finished'),
+
+    #
+    url(r'^activation/(?P<uuid>[0-9a-zA-Z_\-]+)/(?P<token>[0-9a-zA-Z_]+)/$', views.activation, name='activation'),
 ]

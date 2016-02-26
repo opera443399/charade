@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-26
 # @ pc
 ###################################
 
@@ -13,11 +13,8 @@ from django.apps import AppConfig
 class AccountsConfig(AppConfig):
     name = 'accounts'
 
-    LOGIN_URL = '/accounts/login/'
     LOGIN_REDIRECT_URL = '/'
-    REGISTRATION_IS_OPEN = True
-    REGISTRATION_IS_AUTOLOGIN = True
-    IS_AUTOACTIVE = False
+
     PASSWORD_LEN_MIN = 5
     PASSWORD_LEN_MAX = None
     PASSWORD_COMPLEXITY_CHECK = True
@@ -27,6 +24,14 @@ class AccountsConfig(AppConfig):
         'DIGITS': 1,      # Digits '0123456789'
         'PUNCTUATION': 0  # Punctuation """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
     }
+
     EMAIL_DOMAIN_VALIDATE = True
     EMAIL_DOMAINS_BLACKLIST = []
     EMAIL_DOMAINS_WHITELIST = []
+
+    REGISTRATION_IS_OPEN = True
+    IS_AUTOACTIVE = False
+    REGISTRATION_IS_AUTOLOGIN = True
+    IS_NEW_USER_NEED_VERIFY_BY_EMAIL = False
+
+
