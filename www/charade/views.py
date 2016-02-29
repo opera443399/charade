@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-18
+# @ 2016-02-29
 # @ pc
 ###################################
 
@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
 from django.utils.translation import ugettext_lazy as _
@@ -38,8 +38,6 @@ def game_set(request):
     try:
         amount = int(request.POST['amount'])
     except (KeyError, ValueError):
-        #msgs = "[ERROR] Set the number before you can play."
-        #print msgs
         return HttpResponseRedirect(reverse('charade:game_ready'))
     else:
         GameTemporaryTable.objects.all().delete()
@@ -96,7 +94,7 @@ def game_score(request, wid):
         gtt.used = 1
         gtt.save()
         return HttpResponseRedirect(reverse('charade:game_play', args=(gtt.board_id,)))
-    
+
 
 @login_required
 def game_board(request):
@@ -131,14 +129,14 @@ class Explanation(generic.DetailView):
 def show_time(request):
     """test ajax"""
     now = time.strftime('%H:%M:%S')
-    return JsonResponse({'now': now}) 
+    return JsonResponse({'now': now})
 
 
 @cache_page(60 * 15)
 def show_about(request):
     """test cache"""
     return render(request, 'charade/about.html')
-    
+
 
 def show_lang(request):
     """test i18n only"""
@@ -151,7 +149,6 @@ def show_meta(request):
     """test use only"""
     metas = request.META.items()
     metas.sort()
-    print 'test meta: {0}'.format(metas)
     html = []
     for k,v in metas:
         html.append('<tr><td>{0}</td><td>{1}</td></tr>'.format(k,v))

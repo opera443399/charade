@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-15
+# @ 2016-02-29
 # @ pc
 ###################################
 
@@ -33,7 +33,7 @@ class Vocabulary(models.Model):
     was_added_recently.admin_order_field = 'dt'
     was_added_recently.boolean = True
     was_added_recently.short_description = '最近添加？'
-        
+
 
 @python_2_unicode_compatible
 class GameScoreBoard(models.Model):
@@ -44,6 +44,7 @@ class GameScoreBoard(models.Model):
 
     def __str__(self):
         return "小组 %s" % self.id
+
 
 @python_2_unicode_compatible
 class GameTemporaryTable(models.Model):

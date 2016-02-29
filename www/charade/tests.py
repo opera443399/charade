@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-16
+# @ 2016-02-29
 # @ pc
 ###################################
 
@@ -62,29 +62,29 @@ class VocabularyViewTests(TestCase):
         """
         game_ready --01
         """
-        response = self.client.get(reverse('charade:game_ready'))     
+        response = self.client.get(reverse('charade:game_ready'))
         self.assertEqual(response.status_code, 200)
 
     def test_game_set_view_word_number_not_set(self):
         """
         game_set --01
-        """    
+        """
         response = self.client.get(reverse('charade:game_set'))
         self.assertEqual(response.status_code, 302)
 
     def test_game_set_view_word_number_set(self):
         """
         game_set --02
-        """   
+        """
         num_of_words = 3
-        response = self.client.post(reverse('charade:game_set'), 
+        response = self.client.post(reverse('charade:game_set'),
                                     {'amount': num_of_words,})
         self.assertEqual(response.status_code, 302)
 
     def test_game_play_view_board_id_not_exist(self):
         """
         game_play --01
-        """    
+        """
         board_id = 10
         response = self.client.get(reverse('charade:game_play', args=(board_id,)))
         self.assertEqual(response.status_code, 404)
@@ -92,7 +92,7 @@ class VocabularyViewTests(TestCase):
     def test_game_play_view_board_id_exist(self):
         """
         game_play --02
-        """    
+        """
         create_word('a')
         create_word('b')
         create_word('c')
@@ -106,7 +106,7 @@ class VocabularyViewTests(TestCase):
         """
         game_score --01
         """
-        word_id = 101    
+        word_id = 101
         scores = 2
         response = self.client.post(reverse('charade:game_score', args=(word_id,)),
                                             {'scores': scores,})
@@ -130,15 +130,15 @@ class VocabularyViewTests(TestCase):
     def test_game_board_view_user_not_login(self):
         """
         game_board --01
-        """    
+        """
         response = self.client.get(reverse('charade:game_board'), follow=True)
         self.assertContains(response, "Authantication System", status_code=200)
 
     def test_explanation_view_word_id_not_exist(self):
         """
         explanation --01
-        """    
-        word_id = 101    
+        """
+        word_id = 101
         response = self.client.get(reverse('charade:explanation', args=(word_id,)))
         self.assertEqual(response.status_code, 404)
 
