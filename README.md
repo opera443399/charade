@@ -1,6 +1,6 @@
 初探django-演示charade在centos7下的部署
 =======================================
-2016/2/26
+2016/3/2
 
 ####charade 是一个猜单词的小游戏。
 https://github.com/opera443399/charade
@@ -54,25 +54,7 @@ prepare
         DEBUG 选项处于关闭状态时，则 django 不处理静态文件，此时应该配置nginx或apache来处理静态文件。
 
 
-6. cache ::
-
-        演示了 memcache 的使用，不需要应移除以下内容，否则需要安装并启用memcache服务。
-        [root@tvm001 www]# vim www/settings.py
-        CACHES = {
-            'default': {
-                'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-                'LOCATION': '127.0.0.1:11211',
-            }
-        }
-
-        [root@tvm001 www]# vim charade/views.py
-        @cache_page(60 * 15)
-        def show_about(request):
-            """test cache"""
-            return render(request, 'charade/about.html')
-
-
-7. i18n(国际化和本地化) ::
+6. i18n(国际化和本地化) ::
 
         增加中间件：locale
         设置可选语言：LANGUAGES

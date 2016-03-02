@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-29
+# @ 2016-03-02
 # @ pc
 ###################################
 
@@ -12,7 +12,6 @@ from django.views import generic
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
 from django.utils.translation import ugettext_lazy as _
 import time
@@ -132,7 +131,6 @@ def show_time(request):
     return JsonResponse({'now': now})
 
 
-@cache_page(60 * 15)
 def show_about(request):
     """test cache"""
     return render(request, 'charade/about.html')
