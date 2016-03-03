@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from charade import views as charade_views
 
@@ -26,6 +28,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^charade/', include('charade.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^upload/', include('upload.urls')),
 
     #################################### admin
     #
@@ -34,4 +37,4 @@ urlpatterns = [
     #################################### i18n
     #
     url(r'^i18n/', include('django.conf.urls.i18n')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

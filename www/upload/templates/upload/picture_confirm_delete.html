@@ -1,0 +1,23 @@
+{% extends "upload/base.html" %}
+{% load staticfiles %}
+{% block titles %}Picture List{% endblock %}
+{% block content %}
+{% if this_pic %}
+    <div class="row">
+
+        <h1>Are you sure?</h1>
+        <p>Are you sure you want to delete the selected picture?</p>
+        <h2>Summary</h2>
+        <ul>
+            <li>Picture: {{ this_pic.slug }}</li>
+            <li>Picture: {{ this_pic.file }}</li>
+        </ul>
+        <form action="" method="post">{% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Yes, I'm sure" />
+            <a href="#" onclick="window.history.back(); return false;" class="btn btn-link">No, take me back</a>
+        </form>
+    </div>
+{% else %}
+    <p>Not found.</p>
+{% endif %}
+{% endblock %}
