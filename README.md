@@ -1,6 +1,6 @@
 初探django-演示charade在centos7下的部署
 =======================================
-2016/3/2
+2016/3/3
 
 ####charade 是一个猜单词的小游戏。
 https://github.com/opera443399/charade
@@ -25,13 +25,37 @@ prepare
 
 3. 试着运行一下 ::
 
-        django默认是启用了 DEBUG 选项，但 charade 这个项目的代码已经关闭 DEBUG 选项，并设置了 ALLOWED_HOSTS 和 STATIC_ROOT ：
+        django默认是启用了 DEBUG 选项，但 charade 这个项目的代码已经关闭 DEBUG 选项，并设置了一下内容：
+        ALLOWED_HOSTS
+        STATIC_URL STATIC_ROOT
+        MEDIA_URL MEDIA_ROOT
+        
+        具体请参考下面的示例：
         [root@tvm001 www]# vim www/settings.py
         DEBUG = False
 
         ALLOWED_HOSTS = ['*']
-
-        STATIC_ROOT = os.path.join(BASE_DIR,'static')
+        
+        # Static files (CSS, JavaScript, Images)
+        # https://docs.djangoproject.com/en/1.9/howto/static-files/
+        
+        STATIC_URL = '/static/'
+        STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+        
+        # Upload files
+        # https://docs.djangoproject.com/en/1.9/howto/static-files/#serving-files-uploaded-by-a-user-during-development
+        # https://docs.djangoproject.com/en/1.9/ref/templates/builtins/#std:templatetag-get_media_prefix
+        MEDIA_URL = '/media/'
+        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+        
+        和 MEDIA 相关的调整如下：
+        [root@tvm001 www]# vim www/urls.py
+        from django.conf import settings
+        from django.conf.urls.static import static
+        
+        urlpatterns = [
+            # ... the rest of your URLconf goes here ...
+        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
         现在，先临时调整配置：
         [root@tvm001 www]# vim www/settings.py
@@ -180,11 +204,15 @@ uwsgi+supervisord+nginx
             listen 80 default;
             server_name www.test.com;
             charset utf-8;
-
+            
             location /static {
                 alias /opt/charade/www/static;
             }
-
+            
+            location /media {
+                alias /opt/charade/www/media;
+            }
+            
             location / {
                 uwsgi_pass 127.0.0.1:8090;
                 include uwsgi_params;
@@ -201,11 +229,15 @@ uwsgi+supervisord+nginx
             listen 80 default;
             server_name www.test.com;
             charset utf-8;
-
+            
             location /static {
                 alias /opt/charade/www/static;
             }
-
+            
+            location /media {
+                alias /opt/charade/www/media;
+            }
+            
             location / {
                 proxy_pass http://backend;
             }

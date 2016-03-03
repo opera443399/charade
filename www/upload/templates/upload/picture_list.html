@@ -1,23 +1,21 @@
 {% extends "upload/base.html" %}
-{% load static %}
-{% block titles %}Picture List{% endblock %}
+{% load i18n static %}
+{% block titles %}{% trans 'Picture List' %}{% endblock %}
 {% block content %}
     <div class="row text-info text-right">
-        <p><a href="{% url 'upload:pic-add'%}">ADD PICTURE</a></p>
+        <p><a href="{% url 'upload:pic-add'%}">{% trans 'ADD PICTURE' %}</a></p>
     </div>
 {% if all_pics %}
     <div class="row">
     {% for pic in all_pics %}
         <div class="pull-left text-center">
-            <img class="img-rounded" src="{% get_media_prefix %}{{ pic.file }}" title="{{ pic.file }}" style="width: 128px; height: 128px;" />
+            <img class="img-rounded img-inline" src="{% get_media_prefix %}{{ pic.file }}" title="{{ pic.slug }}" />
             <br />
-            <a class="text-danger" href="{% url 'upload:pic-delete' pic.id %}">Delete</a>
+            <a class="text-danger" href="{% url 'upload:pic-delete' pic.id %}">{% trans 'Delete' %}</a>
         </div>
     {% endfor %}
     </div>
-
 {% else %}
-    <p>0 pictures.</p>
+    <p>{% trans '0 pictures.' %}</p>
 {% endif %}
-
 {% endblock %}

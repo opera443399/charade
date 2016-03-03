@@ -8,16 +8,16 @@
     <title>{% block titles %} base template {% endblock %}</title>
     <meta name="Description" content="">
     <meta name="Keywords" content="">
-    <link rel="shortcut icon" href="{% static 'accounts/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'upload/images/favicon.ico' %}" type="image/x-icon">
     <!-- jQuery Start -->
-    <script src="{% static 'accounts/js/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'accounts/js/accounts-base.js' %}"></script>
+    <script src="{% static 'upload/js/jquery-2.2.0.min.js' %}"></script>
+    <script src="{% static 'upload/js/upload-base.js' %}"></script>
     {% block js4this %}{% endblock %}
     <!-- End of jQuery -->
     <!-- Bootstrap Start -->
-    <script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'accounts/css/accounts-base.css' %}">
+    <script src="{% static 'upload/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'upload/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'upload/css/upload-base.css' %}">
     {% block css4this %}{% endblock %}
     <!-- End of Bootstrap -->
 </head>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-xs-3 col-sm-3">
             <a href="/">
-                <img class="img-rounded img-avatar" src="{% static 'accounts/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me."></img>
+                <img class="img-rounded img-avatar" src="{% static 'upload/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me."></img>
             </a>
         </div>
         <div class="col-xs-6 col-sm-6">
@@ -55,7 +55,7 @@
         </div>
         <div class="col-xs-6 col-sm-6">
             <h3 id="tips" class="text-center">
-                <strong id="tips1">{% trans 'Upload Widget' %}</strong>
+                <strong id="tips1">{% trans 'Upload System' %}</strong>
             </h3>
         </div>
         <div class="col-xs-3 col-sm-3">
