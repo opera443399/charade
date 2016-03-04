@@ -9,10 +9,20 @@ prepare
 -------
 1. pip+django ::
 
+        主要依赖：
         [root@tvm001 ~]# yum install python-pip
         [root@tvm001 ~]# pip install django
-        django 项目用到了 pytz
+        
+        其他依赖：
+        django 项目用到了 pytz，需要安装：
+        # https://docs.djangoproject.com/es/1.9/topics/i18n/timezones/
         [root@tvm001 ~]# pip install pytz
+        
+        upload 这个 app 用到了 Pillow，需要安装：
+        [root@tvm001 ~]# pip install Pillow
+        如果报错类似："ValueError: jpeg is required ...."，则：
+        [root@tvm001 ~]# yum install libjpeg-devel
+        
 
 
 2. 调整 project setting ::

@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-03-03
+# @ 2016-03-04
 # @ pc
 ###################################
 
-from django.http import JsonResponse
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic import ListView
@@ -30,4 +29,3 @@ class PictureDeleteView(DeleteView):
 class PictureListView(ListView):
     model = Picture
     context_object_name = "all_pics"
-

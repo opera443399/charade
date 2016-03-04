@@ -1,7 +1,10 @@
 {% extends "upload/base.html" %}
-{% load staticfiles %}
+{% load i18n staticfiles %}
 {% block titles %}Upload{% endblock %}
 {% block content %}
+    <div class="row text-info text-right">
+        <strong><a href="{% url 'upload:pic-list'%}">{% trans 'LIST PICTURE' %}</a></strong>
+    </div>
     <div class="row text-center">
         <form class="form-inline" role="form" method="post" action="." enctype="multipart/form-data">
             {% csrf_token %}
