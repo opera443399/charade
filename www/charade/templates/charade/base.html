@@ -32,14 +32,14 @@
     <div class="row">
         <div class="col-xs-3 col-sm-3">
             <a href="/">
-                <img class="img-rounded img-avatar" src="{% static 'charade/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me."></img>
+                <img class="img-rounded img-avatar" src="{% static 'charade/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me." />
             </a>
         </div>
         <div class="col-xs-6 col-sm-6">
         </div>
         <div class="col-xs-3 col-sm-3">
         {% if user.is_authenticated %}
-            <a href="{% url 'accounts:logout' %}" title="logout">{% trans 'Logout' %}</a>
+            <a href="{% url 'accounts:logout' %}" title="Sign Out">{% trans 'Sign out' %}</a>
             |<strong>
             {% trans 'Welcome' %}, {{ user.username }}
             </strong>
