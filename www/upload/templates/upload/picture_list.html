@@ -2,24 +2,35 @@
 {% load i18n static %}
 {% block titles %}{% trans 'Picture List' %}{% endblock %}
 {% block content %}
-    <div class="row text-info text-right">
-        <strong><a href="{% url 'upload:pic-add'%}">{% trans 'ADD PICTURE' %}</a></strong>
-    </div>
+    <div class="row">
+        <div class="col-xs-3 col-sm-3">
+        </div>
+        <div class="col-xs-6 col-sm-6">
+        </div>
+        <div class="col-xs-3 col-sm-3 text-info">
+            <strong><a href="{% url 'upload:pic-add'%}">{% trans 'ADD PICTURE' %}</a></strong>
+        </div>
+    <div>
 {% if all_pics %}
     <div class="row">
+        <div class="col-xs-1 col-sm-2">
+        </div>
+        <div class="col-xs-10 col-sm-8">
         <ul class="list-inline">
-        {% for pic in all_pics %}
-        <li class="inline-group">
+            {% for pic in all_pics %}
+            <li class="inline-group">
             {% if user.is_authenticated %}
             <a class="text-danger" href="{% url 'upload:pic-delete' pic.id %}"><i class="glyphicon glyphicon-remove"></i></a>
             {% endif %}
             <a href="{% get_media_prefix %}{{ pic.file }}" title="{% get_media_prefix %}{{ pic.file }}" class="thumbnail">
                 <img class="img-rounded img-inline" src="{% get_media_prefix %}{{ pic.file }}" title="{{ pic.slug }}" />
             </a>
-        </li>
-
-        {% endfor %}
-            </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="col-xs-1 col-sm-2">
+        </div>
     </div>
 {% else %}
     <p>{% trans '0 pictures.' %}</p>

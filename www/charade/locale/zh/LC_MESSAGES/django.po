@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-19 11:13+0800\n"
+"POT-Creation-Date: 2016-03-04 15:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: templates/charade/base.html:42
-msgid "Logout"
-msgstr "登出"
+msgid "Sign out"
+msgstr "注销"
 
 #: templates/charade/base.html:44
 msgid "Welcome"
@@ -93,26 +93,42 @@ msgid "English"
 msgstr "英文"
 
 #: templates/charade/ready.html:12
+msgid "Jump to gallary"
+msgstr "进入照片墙"
+
+#: templates/charade/ready.html:12
+msgid "Gallary"
+msgstr "照片墙"
+
+#: templates/charade/ready.html:13
+msgid "Jump to polls"
+msgstr "进入投票区"
+
+#: templates/charade/ready.html:13
 msgid "Polls"
 msgstr "投票"
 
-#: templates/charade/ready.html:13
+#: templates/charade/ready.html:15
+msgid "Login needed"
+msgstr "请先登录"
+
+#: templates/charade/ready.html:15
 msgid "Score-Board"
 msgstr "积分榜"
 
-#: templates/charade/ready.html:18
+#: templates/charade/ready.html:21
 msgid "number of words"
 msgstr "先来几十个单词试试呗"
 
-#: templates/charade/ready.html:20
+#: templates/charade/ready.html:23
 msgid "Play"
 msgstr "进入游戏"
 
-#: templates/charade/ready.html:33
+#: templates/charade/ready.html:38
 msgid "Region Select"
 msgstr "语言偏好"
 
-#: views.py:145
+#: views.py:140
 #, python-format
 msgid "language code: %s"
 msgstr "页面语言编码：%s"
