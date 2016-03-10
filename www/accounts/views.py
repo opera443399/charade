@@ -17,6 +17,7 @@ from .utils import TokenManager, validate_new_user_by_email
 
 # Create your views here.
 
+
 def registration(request, registration_form=RegistrationForm):
     registered_user_redirect_to = conf.LOGIN_REDIRECT_URL
     post_registration_redirect = reverse('accounts:registration_finished')

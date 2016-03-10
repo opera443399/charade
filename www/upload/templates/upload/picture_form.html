@@ -2,20 +2,26 @@
 {% load i18n staticfiles %}
 {% block titles %}Upload{% endblock %}
 {% block content %}
-    <div class="row text-info text-right">
-        <strong><a href="{% url 'upload:pic-list'%}">{% trans 'LIST PICTURE' %}</a></strong>
+    <div class="row">
+        <div class="col-xs-offset-6 col-xs-6 text-info text-right">
+            <p><strong>
+                <a href="{% url 'upload:pic-list'%}">{% trans 'LIST PICTURE' %}</a>
+            </strong></p>
+        </div>
     </div>
-    <div class="row text-center">
-        <form class="form-inline" role="form" method="post" action="." enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label class="sr-only" for="id_file">File</label>
-                <input type="file" class="form-control" id="id_file" name="file">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">upload</button>
-                <button type="reset" class="btn btn-warning">cancel</button>
-            </div>
-        </form>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 text-center">
+            <form class="form-inline" role="form" method="post" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="sr-only" for="id_file">File</label>
+                    <input type="file" class="form-control" id="id_file" name="file">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">upload</button>
+                    <button type="reset" class="btn btn-warning">cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}

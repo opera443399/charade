@@ -31,14 +31,12 @@
 
     <!-- Nav Start -->
     <div class="row">
-        <div class="col-xs-3 col-sm-3">
+        <div class="col-xs-6 text-left">
             <a href="/">
                 <img class="img-rounded img-avatar" src="{% static 'upload/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me." />
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6">
-        </div>
-        <div class="col-xs-3 col-sm-3">
+        <div class="col-xs-6 text-right">
             {% if user.is_authenticated %}
             <a href="{% url 'accounts:logout' %}" title="Sign Out">{% trans 'Sign out' %}</a>|
             <strong>
@@ -51,23 +49,27 @@
 
     <!-- Header Start -->
     <div class="row">
-        <div class="col-xs-3 col-sm-3">
-        </div>
-        <div class="col-xs-6 col-sm-6">
+        <div class="col-xs-offset-2 col-xs-8">
             <h3 id="tips" class="text-center">
                 <strong id="tips1">{% trans 'Gallary' %}</strong>
             </h3>
         </div>
-        <div class="col-xs-3 col-sm-3">
-        </div>
     </div>
     <div class="row">
-        <pre id="quote">
-Hi, Chaos!
-Just do it, and do it regularly as a ritual.
-When we don't appreciate the good, when we take it for granted, the good depreciates.
-            -- #just remind you#
-        </pre>
+        <div class="col-xs-offset-1 col-xs-10">
+            <blockquote id="quote">
+                <p>
+                    Hi, Chaos!
+                </p>
+                <p>
+                    Just do it, and do it regularly as a ritual.
+                </p>
+                <p>
+                    When we don't appreciate the good, when we take it for granted, the good depreciates.
+                </p>
+                <small class="pull-right">#just remind you#</small>
+            </blockquote>
+        </div>
     </div>
     <p class="p-space"></p>
     <!-- End of Header -->

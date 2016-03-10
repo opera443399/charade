@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-03-04
+# @ 2016-03-10
 # @ pc
 ###################################
 
@@ -14,7 +14,7 @@ app_name = 'upload'
 urlpatterns = [
     #################################### upload
     #
-    url(r'^$', login_required(views.PictureCreateView.as_view()), name='pic-add'),
+    url(r'^add$', login_required(views.PictureCreateView.as_view()), name='pic-add'),
     url(r'^delete/(?P<pk>\d+)/$', login_required(views.PictureDeleteView.as_view()), name='pic-delete'),
-    url(r'^list/$', views.PictureListView.as_view(), name='pic-list'),
+    url(r'^gallary/$', views.PictureListView.as_view(), name='pic-list'),
 ]

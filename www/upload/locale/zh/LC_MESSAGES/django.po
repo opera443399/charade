@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-04 15:51+0800\n"
+"POT-Creation-Date: 2016-03-10 15:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/upload/base.html:43
+#: templates/upload/base.html:41
 msgid "Sign out"
 msgstr "注销"
 
-#: templates/upload/base.html:45
+#: templates/upload/base.html:43
 msgid "Welcome"
 msgstr "欢迎您"
 
-#: templates/upload/base.html:58
+#: templates/upload/base.html:54
 msgid "Gallary"
 msgstr "照片墙"
 
@@ -49,14 +49,14 @@ msgstr "是的，我确定"
 msgid "No, take me back"
 msgstr "不，返回"
 
-#: templates/upload/picture_form.html:6
+#: templates/upload/picture_form.html:8
 msgid "LIST PICTURE"
 msgstr "列出图片"
 
-#: templates/upload/picture_list.html:11
+#: templates/upload/picture_list.html:8
 msgid "ADD PICTURE"
 msgstr "添加图片"
 
-#: templates/upload/picture_list.html:36
+#: templates/upload/picture_list.html:32
 msgid "0 pictures."
 msgstr "0 个图片。"
