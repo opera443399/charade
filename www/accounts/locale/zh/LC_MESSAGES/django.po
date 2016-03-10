@@ -115,7 +115,7 @@ msgstr "登录"
 
 #: templates/accounts/login.html:23
 msgid "Sign Up"
-msgstr "注册入口已关闭"
+msgstr "注册入口"
 
 #: templates/accounts/registration.html:3
 #: templates/accounts/registration_closed.html:3
