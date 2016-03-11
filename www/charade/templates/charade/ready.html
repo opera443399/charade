@@ -9,11 +9,6 @@
        <h3><p id="warning" class="text-danger text-center"></p></h3>
     </div>
     <div class="row text-center">
-        <a href="{% url 'upload:pic-list' %}" title="{% trans 'Jump to gallary' %}">{% trans 'Gallary' %}</a>
-        <a href="{% url 'polls:index' %}" title="{% trans 'Jump to polls' %}">{% trans 'Polls' %}</a>
-
-        <strong><a href="{% url 'charade:game_board' %}" title="{% trans 'Login needed' %}">{% trans 'Score-Board' %}</a></strong>
-        <p></p>
         <div class="col-xs-offset-1 col-xs-10">
             <form class="form-inline" role="form" id="form-setting" action="{% url 'charade:game_set' %}" method="post">
                 <div class="form-group">

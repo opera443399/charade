@@ -8,15 +8,16 @@
     <title>{% block titles %} base template {% endblock %}</title>
     <meta name="Description" content="">
     <meta name="Keywords" content="">
-    <link rel="shortcut icon" href="{% static 'accounts/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'charade/images/favicon.ico' %}" type="image/x-icon">
     <!-- jQuery Start -->
-    <script src="{% static 'accounts/js/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'accounts/js/accounts-base.js' %}"></script>
+    <script src="{% static 'charade/js/jquery-2.2.0.min.js' %}"></script>
+    <script src="{% static 'charade/js/charade-base.js' %}"></script>
     {% block js4this %}{% endblock %}
     <!-- End of jQuery -->
     <!-- Bootstrap Start -->
-    <script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <script src="{% static 'charade/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'charade/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'charade/css/charade-base.css' %}">
     <link rel="stylesheet" href="{% static 'accounts/css/accounts-base.css' %}">
     {% block css4this %}{% endblock %}
     <!-- End of Bootstrap -->
@@ -25,21 +26,11 @@
 <!-- Container Start -->
 <div class="container">
 
-    <div class="row">
-        <p></p>
-    </div>
-
     <!-- Nav Start -->
-    <div class="row">
-        <div class="col-xs-6 text-left">
-            <a href="/">
-                <img class="img-rounded img-avatar" src="{% static 'accounts/images/avatar.jpg' %}" alt="Home" title="Back Home? Click me." />
-            </a>
-        </div>
-    </div>
+    {% include "charade/nav.html" %}
     <!-- End of Nav -->
 
-    <!-- Header Start -->
+    <!-- Title Start -->
     <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
             <h3 id="tips" class="text-center">
@@ -64,7 +55,7 @@
         </div>
     </div>
     <p class="p-space"></p>
-    <!-- End of Header -->
+    <!-- End of Title -->
 
     <!-- Content Start -->
     {% block content %}{% endblock %}

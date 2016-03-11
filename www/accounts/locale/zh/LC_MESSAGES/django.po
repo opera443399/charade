@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-10 15:53+0800\n"
+"POT-Creation-Date: 2016-03-11 20:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,7 +104,7 @@ msgstr "谢谢您注册为本站会员。请访问这里以激活您的账户：
 msgid "Account activation from website: "
 msgstr "激活账户邮件，来自："
 
-#: templates/accounts/base.html:46
+#: templates/accounts/base.html:37
 msgid "Authantication System"
 msgstr "认证系统"
 

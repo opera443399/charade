@@ -8,21 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-10 15:54+0800\n"
+"POT-Creation-Date: 2016-03-11 20:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: templates/charade/base.html:40
-msgid "Sign out"
-msgstr "注销"
-
-#: templates/charade/base.html:42
-msgid "Welcome"
-msgstr "欢迎您"
 
 #: templates/charade/board.html:8
 msgid "Previous"
@@ -68,6 +60,38 @@ msgstr "解释"
 msgid "Chinese"
 msgstr "中文"
 
+#: templates/charade/nav.html:26
+msgid "Jump to gallary"
+msgstr "进入照片墙"
+
+#: templates/charade/nav.html:26
+msgid "Gallary"
+msgstr "照片墙"
+
+#: templates/charade/nav.html:30
+msgid "Jump to polls"
+msgstr "进入投票区"
+
+#: templates/charade/nav.html:30
+msgid "Polls"
+msgstr "投票"
+
+#: templates/charade/nav.html:35
+msgid "Login needed"
+msgstr "请先登录"
+
+#: templates/charade/nav.html:35
+msgid "Score-Board"
+msgstr "积分榜"
+
+#: templates/charade/nav.html:42
+msgid "Sign out"
+msgstr "注销"
+
+#: templates/charade/nav.html:46
+msgid "Welcome"
+msgstr "欢迎您"
+
 #: templates/charade/play.html:22
 msgid "Make a Score"
 msgstr "请评分"
@@ -92,39 +116,15 @@ msgstr "复习"
 msgid "English"
 msgstr "英文"
 
-#: templates/charade/ready.html:12
-msgid "Jump to gallary"
-msgstr "进入照片墙"
-
-#: templates/charade/ready.html:12
-msgid "Gallary"
-msgstr "照片墙"
-
-#: templates/charade/ready.html:13
-msgid "Jump to polls"
-msgstr "进入投票区"
-
-#: templates/charade/ready.html:13
-msgid "Polls"
-msgstr "投票"
-
-#: templates/charade/ready.html:15
-msgid "Login needed"
-msgstr "请先登录"
-
-#: templates/charade/ready.html:15
-msgid "Score-Board"
-msgstr "积分榜"
-
-#: templates/charade/ready.html:21
+#: templates/charade/ready.html:16
 msgid "number of words"
 msgstr "先来几十个单词试试呗"
 
-#: templates/charade/ready.html:23
+#: templates/charade/ready.html:18
 msgid "Play"
 msgstr "进入游戏"
 
-#: templates/charade/ready.html:38
+#: templates/charade/ready.html:33
 msgid "Region Select"
 msgstr "语言偏好"
 
