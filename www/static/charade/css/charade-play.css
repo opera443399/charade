@@ -1,1 +1,4 @@
 .vocabulary-en {font-size: 500%;color: black;}
+@media screen and (max-width:600px){
+.vocabulary-en {font-size: 250%;color: black;}
+}

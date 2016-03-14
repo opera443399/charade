@@ -10,7 +10,7 @@
 {% block content %}
 {% if msgs %}
     <div class="row text-center">
-        <h3><p class="text-success"><strong>{{ msgs }}<strong></p></h3>
+        <p class="text-success"><strong>{{ msgs }}<strong></p>
     </div>
 {% endif %}
 {% if word_list %}
@@ -36,7 +36,7 @@
             <span class="vocabulary-en">{{ w.en }}</span>
         </a>
     </div>
-    <div class="row">
+    <div class="row text-center">
         <p class="text-success">{{ w.zh }}</p>
     </div>
 {% endfor %}

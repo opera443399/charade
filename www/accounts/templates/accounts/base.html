@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="{% static 'charade/images/favicon.ico' %}" type="image/x-icon">
     <!-- jQuery Start -->
     <script src="{% static 'charade/js/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'charade/js/charade-base.js' %}"></script>
     {% block js4this %}{% endblock %}
     <!-- End of jQuery -->
     <!-- Bootstrap Start -->
@@ -31,27 +30,11 @@
     <!-- End of Nav -->
 
     <!-- Title Start -->
-    <div class="row">
+    <div class="row text-center">
         <div class="col-xs-offset-2 col-xs-8">
-            <h3 id="tips" class="text-center">
-                <strong id="tips1">{% trans 'Authantication System' %}</strong>
-            </h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-10">
-            <blockquote id="quote">
-                <p>
-                    Hi, Chaos!
-                </p>
-                <p>
-                    Just do it, and do it regularly as a ritual.
-                </p>
-                <p>
-                    When we don't appreciate the good, when we take it for granted, the good depreciates.
-                </p>
-                <small class="pull-right">#just remind you#</small>
-            </blockquote>
+            <h3><strong>
+                {% trans 'Authantication System' %}
+            </strong></h3>
         </div>
     </div>
     <p class="p-space"></p>

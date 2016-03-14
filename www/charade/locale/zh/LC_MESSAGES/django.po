@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 20:12+0800\n"
+"POT-Creation-Date: 2016-03-14 16:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,9 +48,9 @@ msgstr "开始时间"
 msgid "End"
 msgstr "结束时间"
 
-#: templates/charade/board.html:46 templates/charade/explanation.html.py:18
-msgid "Not available"
-msgstr "无记录"
+#: templates/charade/board.html:46
+msgid "Not available."
+msgstr "0条记录。"
 
 #: templates/charade/explanation.html:3 templates/charade/explanation.html:14
 msgid "Explanation"
@@ -59,6 +59,14 @@ msgstr "解释"
 #: templates/charade/explanation.html:13 templates/charade/play.html.py:51
 msgid "Chinese"
 msgstr "中文"
+
+#: templates/charade/explanation.html:18
+msgid "Not available"
+msgstr "无记录"
+
+#: templates/charade/nav.html:11
+msgid "Back Home? Click me."
+msgstr "返回首页？请单击这里"
 
 #: templates/charade/nav.html:26
 msgid "Jump to gallary"
