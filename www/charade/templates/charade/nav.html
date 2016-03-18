@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       Widgets
+                       {% trans 'Widgets' %}
                        <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -35,17 +35,26 @@
                     <a href="{% url 'charade:game_board' %}" title="{% trans 'Login needed' %}">{% trans 'Score-Board' %}</a>
                 </li>
             </ul>
-            {% if user.is_authenticated %}
+
             <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'accounts:logout' %}" title="Sign Out">
-                    {% trans 'Sign out' %}
+                    <a href="{% url 'accounts:profile' %}" title="{% trans 'View Profile' %}" class="navbar-link">
+                        {{ user.username }}
                     </a>
                 </li>
                 <li>
-                    <a>{% trans 'Welcome' %}, {{ user.username }}</a>
+                    <a href="{% url 'accounts:logout' %}" title="{% trans 'Sign Out' %}" class="navbar-link">
+                        {% trans 'Sign Out' %}
+                    </a>
                 </li>
-            </ul>
+            {% else %}
+                <li>
+                    <a href="{% url 'accounts:login'%}" title="{% trans 'Sign In' %}" class="navbar-link">
+                        {% trans 'Sign In' %}
+                    </a>
+                </li>
             {% endif %}
+            </ul>
         </div>
     </nav>

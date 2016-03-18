@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-26
+# @ 2016-03-17
 # @ pc
 ###################################
 
@@ -24,4 +24,7 @@ urlpatterns = [
 
     #
     url(r'^activation/(?P<uuid>[0-9a-zA-Z_\-]+)/(?P<token>[0-9a-zA-Z_]+)/$', views.activation, name='activation'),
+
+    #
+    url(r'^profile/$', views.profile, name='profile'),
 ]

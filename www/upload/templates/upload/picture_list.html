@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-xs-offset-6 col-xs-6 text-right text-info">
             <p><strong>
+            {% if user.is_authenticated %}
                 <a href="{% url 'upload:pic-add'%}">{% trans 'ADD PICTURE' %}</a>
+            {% endif %}
             </strong></p>
         </div>
     </div>

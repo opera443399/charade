@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-14 15:42+0800\n"
+"POT-Creation-Date: 2016-03-18 10:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,6 +116,22 @@ msgstr "登录"
 #: templates/accounts/login.html:23
 msgid "Sign Up"
 msgstr "注册入口"
+
+#: templates/accounts/profile.html:3
+msgid "Profile"
+msgstr "个人资料"
+
+#: templates/accounts/profile.html:10
+msgid "Nickname:"
+msgstr "昵称："
+
+#: templates/accounts/profile.html:17
+msgid "gender:"
+msgstr "性别："
+
+#: templates/accounts/profile.html:24
+msgid "avator:"
+msgstr "头像："
 
 #: templates/accounts/registration.html:3
 #: templates/accounts/registration_closed.html:3
