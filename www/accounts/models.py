@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-03-18
+# @ 2016-03-23
 # @ pc
 ###################################
 
@@ -18,5 +18,5 @@ class Player(models.Model):
     gender = models.CharField(max_length=20, default='Secret')
     nickname = models.CharField(max_length=40, default='New Player')
 
-    def __unicode__(self):
+    def __str__(self):
         return "{0}'s Profile".format(self.user.username)

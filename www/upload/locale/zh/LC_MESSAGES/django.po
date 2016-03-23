@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-14 15:51+0800\n"
+"POT-Creation-Date: 2016-03-23 16:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,10 +48,10 @@ msgstr "图片上传"
 msgid "LIST PICTURE"
 msgstr "列出图片"
 
-#: templates/upload/picture_list.html:8
+#: templates/upload/picture_list.html:9
 msgid "ADD PICTURE"
 msgstr "添加图片"
 
-#: templates/upload/picture_list.html:32
+#: templates/upload/picture_list.html:34
 msgid "0 pictures."
 msgstr "0 个图片。"

@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 ###################################
 # @ Django 1.9.1
-# @ 2016-02-29
+# @ 2016-03-23
 # @ pc
 ###################################
 
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
 
 import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
-@python_2_unicode_compatible
 class Vocabulary(models.Model):
-    en = models.CharField('en', max_length=100, unique=True)
-    zh = models.CharField('中文', max_length=100)
-    exp = models.TextField('解释', max_length=200, null=True)
+    en = models.CharField(_('English'), max_length=100, unique=True)
+    zh = models.CharField(_('Chinese'), max_length=100)
+    exp = models.TextField(_('Explanation'), max_length=200, null=True)
 
-    dt = models.DateTimeField('添加时间', auto_now_add=True)
+    dt = models.DateTimeField(_('Timestamp'), auto_now_add=True)
 
     def __str__(self):
         return self.en
@@ -32,29 +31,27 @@ class Vocabulary(models.Model):
 
     was_added_recently.admin_order_field = 'dt'
     was_added_recently.boolean = True
-    was_added_recently.short_description = '最近添加？'
+    was_added_recently.short_description = _('Added recently?')
 
 
-@python_2_unicode_compatible
 class GameScoreBoard(models.Model):
-    amount = models.IntegerField('单词总数', default=0)
-    scores = models.IntegerField('总得分', default=0)
-    dt_start = models.DateTimeField('开始时间', auto_now_add=True)
-    dt_end = models.DateTimeField('结束时间', auto_now=True)
+    amount = models.IntegerField(_('Amount of words'), default=0)
+    scores = models.IntegerField(_('Total Points'), default=0)
+    dt_start = models.DateTimeField(_('Start'), auto_now_add=True)
+    dt_end = models.DateTimeField(_('End'), auto_now=True)
 
     def __str__(self):
-        return "小组 %s" % self.id
+        return 'team %s' % self.id
 
 
-@python_2_unicode_compatible
 class GameTemporaryTable(models.Model):
     board = models.ForeignKey(GameScoreBoard)
-    en = models.CharField('en', max_length=100)
-    zh = models.CharField('中文', max_length=100)
-    exp = models.TextField('解释', max_length=200, null=True)
-    scores = models.IntegerField('得分', default=0)
-    used = models.IntegerField('used', default=0)
-    vid = models.IntegerField('vid', default=0)
+    en = models.CharField(_('English'), max_length=100)
+    zh = models.CharField(_('Chinese'), max_length=100)
+    exp = models.TextField(_('Explanation'), max_length=200, null=True)
+    scores = models.IntegerField(_('Round points'), default=0)
+    used = models.IntegerField(_('Already used?'), default=0)
+    vid = models.IntegerField(_('Vocabulary ID'), default=0)
 
 
     def __str__(self):

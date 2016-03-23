@@ -8,13 +8,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 15:45+0800\n"
+"POT-Creation-Date: 2016-03-23 16:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:19 models.py:49 templates/charade/play.html.py:50
+msgid "English"
+msgstr "英文"
+
+#: models.py:20 models.py:50 templates/charade/explanation.html.py:13
+#: templates/charade/play.html:51
+msgid "Chinese"
+msgstr "中文"
+
+#: models.py:21 models.py:51 templates/charade/explanation.html.py:3
+#: templates/charade/explanation.html:14
+msgid "Explanation"
+msgstr "解释"
+
+#: models.py:23
+msgid "Timestamp"
+msgstr "添加时间"
+
+#: models.py:34
+msgid "Added recently?"
+msgstr "最近添加？"
+
+#: models.py:38 templates/charade/board.html.py:25
+msgid "Amount of words"
+msgstr "单词总数"
+
+#: models.py:39
+msgid "Total Points"
+msgstr "总得分"
+
+#: models.py:40 templates/charade/board.html.py:27
+msgid "Start"
+msgstr "开始时间"
+
+#: models.py:41 templates/charade/board.html.py:28
+msgid "End"
+msgstr "结束时间"
+
+#: models.py:52
+msgid "Round points"
+msgstr "本局得分"
+
+#: models.py:53
+msgid "Already used?"
+msgstr "已使用？"
+
+#: models.py:54
+msgid "Vocabulary ID"
+msgstr "单词表 ID"
 
 #: templates/charade/about.html:6
 msgid "TAKE MY HAT OFF to #Fu Tian English Corner# from 2010-2016."
@@ -36,33 +86,13 @@ msgstr "积分榜"
 msgid "Team id"
 msgstr "小组编号"
 
-#: templates/charade/board.html:25
-msgid "Amount of words"
-msgstr "单词总数"
-
 #: templates/charade/board.html:26 templates/charade/play.html.py:52
 msgid "Scores"
 msgstr "积分"
 
-#: templates/charade/board.html:27
-msgid "Start"
-msgstr "开始时间"
-
-#: templates/charade/board.html:28
-msgid "End"
-msgstr "结束时间"
-
 #: templates/charade/board.html:46
 msgid "Not available."
 msgstr "0条记录。"
-
-#: templates/charade/explanation.html:3 templates/charade/explanation.html:14
-msgid "Explanation"
-msgstr "解释"
-
-#: templates/charade/explanation.html:13 templates/charade/play.html.py:51
-msgid "Chinese"
-msgstr "中文"
 
 #: templates/charade/explanation.html:18
 msgid "Not available"
@@ -147,10 +177,6 @@ msgstr "评分并继续"
 #: templates/charade/play.html:47
 msgid "Review"
 msgstr "复习"
-
-#: templates/charade/play.html:50
-msgid "English"
-msgstr "英文"
 
 #: templates/charade/ready.html:16
 msgid "number of words"
